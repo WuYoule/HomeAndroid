@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.example.bdwall.MyScrollView
+        android:id="@+id/myScrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="none" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <com.example.bdwall.AdScroll
+                android:id="@+id/myAdScroll"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" >
+            </com.example.bdwall.AdScroll>
+
+            <com.example.bdwall.MyGridView
+                android:id="@+id/myGridView"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_below="@id/myAdScroll"
+                android:horizontalSpacing="10dp"
+                android:numColumns="2"
+                android:verticalSpacing="10dp" >
+            </com.example.bdwall.MyGridView>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="35dp"
+                android:layout_below="@id/myGridView"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bottom_select"
+                android:clickable="true" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/image_more_icon_feedback" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="意见反馈"
+                        android:textSize="16dp" />
+                </LinearLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </com.example.bdwall.MyScrollView>
+
+</RelativeLayout>

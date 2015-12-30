@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/myFirstLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#ff0077"
+        android:orientation="vertical" >
+
+        <com.example.bdwall.SettingItemView
+            android:id="@+id/zidong"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp" >
+        </com.example.bdwall.SettingItemView>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dp"
+            android:background="#b2b2b2" >
+        </LinearLayout>
+
+        <com.example.bdwall.SettingItemView
+            android:id="@+id/yijian"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp" >
+        </com.example.bdwall.SettingItemView>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dp"
+            android:background="#b2b2b2" >
+        </LinearLayout>
+
+        <com.example.bdwall.SettingItemView
+            android:id="@+id/tupianzhiliang"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp" >
+        </com.example.bdwall.SettingItemView>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dp"
+            android:background="#b2b2b2" >
+        </LinearLayout>
+
+        <com.example.bdwall.SettingItemView
+            android:id="@+id/clear"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp" >
+        </com.example.bdwall.SettingItemView>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dp"
+            android:background="#b2b2b2" >
+        </LinearLayout>
+
+        <com.example.bdwall.SettingItemView
+            android:id="@+id/jiancegenxin"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp" >
+        </com.example.bdwall.SettingItemView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mySecondLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/myFirstLayout"
+        android:layout_margin="10dp"
+        android:background="#ff0077"
+        android:orientation="vertical" >
+
+        <com.example.bdwall.SettingItemView
+            android:id="@+id/help"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp" >
+        </com.example.bdwall.SettingItemView>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dp"
+            android:background="#b2b2b2" >
+        </LinearLayout>
+
+        <com.example.bdwall.SettingItemView
+            android:id="@+id/ideaback"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp" >
+        </com.example.bdwall.SettingItemView>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dp"
+            android:background="#b2b2b2" >
+        </LinearLayout>
+
+        <com.example.bdwall.SettingItemView
+            android:id="@+id/contactus"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp" >
+        </com.example.bdwall.SettingItemView>
+    </LinearLayout>
+
+</RelativeLayout>
