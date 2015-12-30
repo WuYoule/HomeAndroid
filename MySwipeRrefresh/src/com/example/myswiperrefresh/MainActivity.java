@@ -25,6 +25,16 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     	mPullRefreshListView = (PullToRefreshListView) findViewById(R.id.pull_refresh_list);
+    	
+    	//设置PullRefreshListView上提加载时的加载提示
+    			mPullRefreshListView.getLoadingLayoutProxy(false, true).setPullLabel("上拉加载...");
+    			mPullRefreshListView.getLoadingLayoutProxy(false, true).setRefreshingLabel("正在加载...");
+    			mPullRefreshListView.getLoadingLayoutProxy(false, true).setReleaseLabel("松开加载更多...");
+    	        // 设置PullRefreshListView下拉加载时的加载提示
+    			mPullRefreshListView.getLoadingLayoutProxy(true, false).setPullLabel("下拉刷新...");
+    			mPullRefreshListView.getLoadingLayoutProxy(true, false).setRefreshingLabel("正在刷新...");
+    			mPullRefreshListView.getLoadingLayoutProxy(true, false).setReleaseLabel("松开刷新...");
+    			
     	mPullRefreshListView.setOnRefreshListener(new OnRefreshListener<ListView>() {
 			@Override
 			public void onRefresh(PullToRefreshBase<ListView> refreshView) {
