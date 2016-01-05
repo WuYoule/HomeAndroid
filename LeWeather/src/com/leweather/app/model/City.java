@@ -8,6 +8,13 @@ public class City {
 	private String cityName;
 	private String cityCode;
 	private int provinceId;
+	private int childCount;
+	public int getChildCount() {
+		return childCount;
+	}
+	public void setChildCount(int childCount) {
+		this.childCount = childCount;
+	}
 	public int getId() {
 		return id;
 	}

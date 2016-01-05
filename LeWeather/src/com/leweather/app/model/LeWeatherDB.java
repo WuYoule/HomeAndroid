@@ -11,6 +11,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Point;
+import android.graphics.PorterDuff;
 
 public class LeWeatherDB {
 
@@ -18,7 +19,7 @@ public class LeWeatherDB {
 	public static final String DB_NAME = "le_weather";
 
 	// Êý¾Ý¿â°æ±¾
-	public static final int VERSION = 1;
+	public static final int VERSION = 10;
 
 	private static LeWeatherDB leWeatherDB;
 
@@ -45,6 +46,7 @@ public class LeWeatherDB {
 			ContentValues values = new ContentValues();
 			values.put("province_name", province.getProvinceName());
 			values.put("province_code", province.getProvinceCode());
+			values.put("childCount", province.getChildCount());
 			db.insert("Province", null, values);
 		}
 
@@ -63,6 +65,8 @@ public class LeWeatherDB {
 					.getColumnIndex("province_name")));
 			province.setProvinceCode(cursor.getString(cursor
 					.getColumnIndex("province_code")));
+			
+			province.setChildCount(cursor.getInt(cursor.getColumnIndex("childCount")));
 			list.add(province);
 			}while(cursor.moveToNext());
 		}
@@ -77,6 +81,7 @@ public class LeWeatherDB {
 			values.put("city_name", city.getCityName());
 			values.put("city_code", city.getCityCode());
 			values.put("province_id", city.getProvinceId());
+			values.put("childCount", city.getChildCount());
 			db.insert("City", null, values);
 		}
 		
@@ -93,6 +98,8 @@ public class LeWeatherDB {
 						.getColumnIndex("city_name")));
 				city.setCityCode(cursor.getString(cursor
 						.getColumnIndex("city_code")));
+				
+				city.setChildCount(cursor.getInt(cursor.getColumnIndex("childCount")));
 				city.setProvinceId(provinceId);
 				list.add(city);
 				

@@ -4,7 +4,14 @@ public class Province {
     private int id;
     private String provinceName;
     private String provinceCode;
-    public int getId() {
+    private int childCount;
+    public int getChildCount() {
+		return childCount;
+	}
+	public void setChildCount(int childCount) {
+		this.childCount = childCount;
+	}
+	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
