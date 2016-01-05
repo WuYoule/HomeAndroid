@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+   		android:background="#484E61"
+   		
+        >
+        <Button 
+            android:id="@+id/switchbtn"
+            android:background="@android:drawable/ic_menu_revert"
+            android:layout_alignParentLeft="true"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+           
+            android:layout_centerVertical="true"
+            
+             android:textColor="#fff"
+            />
+        <TextView 
+            android:id="@+id/city_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="#fff"
+            android:textSize="24sp"
+            android:text="宣城市"
+            />
+         <Button 
+             android:id="@+id/refreshbtn"
+             android:background="@android:drawable/ic_menu_search"
+            android:layout_alignParentRight="true"
+           android:layout_centerVertical="true"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+           
+             android:textColor="#fff"
+            />
+    </RelativeLayout>
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#27A5F9"
+        >
+        <TextView 
+            android:id="@+id/publish_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+ 			android:layout_marginTop="10dp"
+ 			android:textColor="#FFF"
+ 			android:textSize="18sp"
+ 			 android:text="今天发布"
+ 			
+            />
+        <LinearLayout 
+            android:id="@+id/wether_info_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            >
+            <TextView 
+                android:id="@+id/current_date"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:textColor="#FFF"
+                android:textSize="18sp"
+                 android:text="01月05日"
+                />
+             <TextView 
+                android:id="@+id/current_desp"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+               
+                android:gravity="center"
+                android:textColor="#FFF"
+                android:textSize="40sp"
+                 android:text="阴转多云"
+                />
+             
+             <TextView 
+                 android:id="@+id/temp"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                android:gravity="center"
+                 android:textColor="#FFF"
+                 android:textSize="40sp"
+                  android:text="3~5"
+                 />
+            
+          
+            
+            
+        </LinearLayout>
+        
+        
+        
+        
+    </RelativeLayout>
+    
+    
+
+</LinearLayout>

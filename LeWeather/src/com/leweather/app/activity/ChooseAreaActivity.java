@@ -88,8 +88,12 @@ public class ChooseAreaActivity extends Activity {
 					}
 				} else if (currentLevel == LEVEL_CITY) {
 
-					selectedCity = cityList.get(index);
-					queryCounties();
+//					selectedCity = cityList.get(index);
+//					queryCounties();
+					
+					String cityCode=cityList.get(index).getCityCode();
+					
+					
 
 				}
 
@@ -114,6 +118,42 @@ public class ChooseAreaActivity extends Activity {
 		}
 
 	}
+	
+	// 查询选中省内所有的市，优先从数据库查询，如果没有查询到再去服务器上查询。
+		private void queryCities() {
+			cityList = leWeatherDB.loadCities(selectedProvince.getId());
+		//	Log.i("queryCities", cityList.size() + "--" + selectedProvince.getId());
+			if (cityList.size() > 0) {
+				dataList.clear();
+				for (City city : cityList) {
+					dataList.add(city.getCityName());
+				}
+				adapter.notifyDataSetChanged();
+				listView.setSelection(0);
+				titleText.setText(selectedProvince.getProvinceName());
+				currentLevel = LEVEL_CITY;
+			} else {
+				queryFromServer(selectedProvince.getProvinceCode(), "city");
+
+			}
+		}
+		// 查询选中市内所有的县，优先从数据库查询，如果没有查询到再去服务器上查询。
+		private void queryCounties() {
+			countyList = leWeatherDB.loadCounties(selectedCity.getId());
+			if (countyList.size() > 0) {
+				dataList.clear();
+				for (County county : countyList) {
+					dataList.add(county.getCountyName());
+				}
+				adapter.notifyDataSetChanged();
+				listView.setSelection(0);
+				titleText.setText(selectedCity.getCityName());
+				currentLevel = LEVEL_COUNTY;
+			} else {
+				queryFromServer(selectedCity.getCityCode(), "county");
+
+			}
+		}
 
 	private void queryFromServer(final String code, final String type) {
 		String address;
@@ -206,42 +246,9 @@ public class ChooseAreaActivity extends Activity {
 
 	}
 
-	// 查询选中省内所有的市，优先从数据库查询，如果没有查询到再去服务器上查询。
-	private void queryCities() {
-		cityList = leWeatherDB.loadCities(selectedProvince.getId());
-		Log.i("queryCities", cityList.size() + "--" + selectedProvince.getId());
-		if (cityList.size() > 0) {
-			dataList.clear();
-			for (City city : cityList) {
-				dataList.add(city.getCityName());
-			}
-			adapter.notifyDataSetChanged();
-			listView.setSelection(0);
-			titleText.setText(selectedProvince.getProvinceName());
-			currentLevel = LEVEL_CITY;
-		} else {
-			queryFromServer(selectedProvince.getProvinceCode(), "city");
+	
 
-		}
-	}
-
-	// 查询选中市内所有的县，优先从数据库查询，如果没有查询到再去服务器上查询。
-	private void queryCounties() {
-		countyList = leWeatherDB.loadCounties(selectedCity.getId());
-		if (countyList.size() > 0) {
-			dataList.clear();
-			for (County county : countyList) {
-				dataList.add(county.getCountyName());
-			}
-			adapter.notifyDataSetChanged();
-			listView.setSelection(0);
-			titleText.setText(selectedCity.getCityName());
-			currentLevel = LEVEL_COUNTY;
-		} else {
-			queryFromServer(selectedCity.getCityCode(), "county");
-
-		}
-	}
+	
 
 	// 捕获Back按键，根据当前的级别来判断，此时应该返回市列表、省列表、还是直接退出
 	@Override

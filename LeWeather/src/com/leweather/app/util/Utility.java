@@ -1,5 +1,8 @@
 package com.leweather.app.util;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.apache.http.impl.client.TunnelRefusedException;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -7,6 +10,11 @@ import org.json.JSONObject;
 import org.xml.sax.Parser;
 
 import android.R.integer;
+import android.app.job.JobInfo;
+import android.content.ContentValues;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.text.TextUtils.TruncateAt;
 import android.util.Log;
@@ -174,4 +182,48 @@ public class Utility {
 
 	}
 
+	// 解析 天气的json数据 并保存到本地
+	public static void handleWeatherResponse(Context context, String response) {
+
+		try {
+			JSONObject jsonObject = new JSONObject(response);
+			
+			String cityName=jsonObject.getString("currentCity");
+			String pm25=jsonObject.getString("pm25");
+			
+			JSONArray jsonArray = new JSONArray(
+					jsonObject.getString("weather_data"));
+		   JSONObject jsonObject2=(JSONObject) jsonArray.get(0);
+		   
+		   String temp=jsonObject2.getString("temperature");
+		   String desc=jsonObject2.getString("weather")+" "+jsonObject2.getString("wind");
+		   String time=jsonObject2.getString("date");
+		   
+		   saveWeatherInfo(context,cityName,pm25,temp,desc,time);
+		   
+			
+			
+		} catch (JSONException e) {
+			
+			e.printStackTrace();
+		}
+
+	}
+
+	//将天气数据存储到SharedPreferendes文件
+	private static void saveWeatherInfo(Context context, String cityName,
+			String pm25, String temp, String desc, String time) {
+		
+	    SharedPreferences.Editor editor=PreferenceManager.getDefaultSharedPreferences(context).edit();
+	    
+	    editor.putBoolean("city_selected", true);
+	    editor.putString("city_name", cityName);
+	    editor.putString("pm25", pm25);
+	    editor.putString("temp", temp);
+	    editor.putString("desc", desc);
+	    editor.putString("time", time);
+	    editor.commit();
+	    
+		
+	}
 }

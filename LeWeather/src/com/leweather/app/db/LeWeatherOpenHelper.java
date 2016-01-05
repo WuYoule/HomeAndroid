@@ -13,10 +13,6 @@ public class LeWeatherOpenHelper extends SQLiteOpenHelper {
 			+"province_name text,"
 			+"province_code text,"+
 			  "childCount integer)";
-	
-	
-	
-	
 	//CityΩ®±Ì”Ôæ‰
 	public static final String CREATE_CITY="create table City("
 	        +"id integer primary key autoincrement,"
@@ -37,7 +33,7 @@ public class LeWeatherOpenHelper extends SQLiteOpenHelper {
 	public LeWeatherOpenHelper(Context context, String name,
 			CursorFactory factory, int version) {
 		super(context, name, factory, version);
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	@Override
