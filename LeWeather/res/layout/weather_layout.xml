@@ -81,7 +81,7 @@
                
                 android:gravity="center"
                 android:textColor="#FFF"
-                android:textSize="40sp"
+                android:textSize="30sp"
                  android:text="阴转多云"
                 />
              
@@ -90,8 +90,9 @@
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                 android:gravity="center"
+                  android:layout_gravity="center_horizontal"
                  android:textColor="#FFF"
-                 android:textSize="40sp"
+                 android:textSize="30sp"
                   android:text="3~5"
                  />
             

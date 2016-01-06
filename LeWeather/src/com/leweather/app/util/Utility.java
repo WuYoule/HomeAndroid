@@ -10,6 +10,7 @@ import org.json.JSONObject;
 import org.xml.sax.Parser;
 
 import android.R.integer;
+import android.R.string;
 import android.app.job.JobInfo;
 import android.content.ContentValues;
 import android.content.Context;
@@ -105,9 +106,6 @@ public class Utility {
 				try {
 					JSONObject jsonObject = new JSONObject(response);
 					String listStr = jsonObject.getString("list");
-					Log.i("CITY list", listStr);
-					// int count =
-					// Integer.parseInt(jsonObject.getString("zidi"));
 					JSONObject jsonObject2 = new JSONObject(listStr);
 					for (int i = 1; i <= childCount; i++) {
 						String listStr2 = jsonObject2.getString("wjr" + i);
@@ -121,9 +119,6 @@ public class Utility {
 						city.setChildCount(Integer.parseInt(jsonObject3
 								.getString("zidi")));
 
-						Log.i("CITY list", jsonObject3.getString("diming")
-								+ " " + jsonObject3.getString("daima") + " "
-								+ jsonObject3.getString("zidi"));
 
 						// 将解析出来的数据存储到Province表中
 						leWeatherDB.saveCity(city);
@@ -185,20 +180,37 @@ public class Utility {
 	// 解析 天气的json数据 并保存到本地
 	public static void handleWeatherResponse(Context context, String response) {
 
+		
 		try {
+			
+			Log.i("Weather", response);
 			JSONObject jsonObject = new JSONObject(response);
 			
-			String cityName=jsonObject.getString("currentCity");
-			String pm25=jsonObject.getString("pm25");
+			String results=jsonObject.getString("results");
 			
-			JSONArray jsonArray = new JSONArray(
-					jsonObject.getString("weather_data"));
-		   JSONObject jsonObject2=(JSONObject) jsonArray.get(0);
+			JSONArray jsonArrayResults=new JSONArray(results);
+			JSONObject jsonObjectResults=(JSONObject) jsonArrayResults.get(0);
+			
+			String cityName=jsonObjectResults.getString("currentCity");
+			
+			String pm25=jsonObjectResults.getString("pm25");
+			
+			String weather_data=jsonObjectResults.getString("weather_data");
+			
+			
+			JSONArray jsonArrayWeatherData=new JSONArray(weather_data);
+			JSONObject jsonObjectWeatherData=(JSONObject) jsonArrayWeatherData.get(0);
+			
+			
+			
+			
 		   
-		   String temp=jsonObject2.getString("temperature");
-		   String desc=jsonObject2.getString("weather")+" "+jsonObject2.getString("wind");
-		   String time=jsonObject2.getString("date");
+		   String temp=jsonObjectWeatherData.getString("temperature");
+		   String desc=jsonObjectWeatherData.getString("weather")+" "+jsonObjectWeatherData.getString("wind");
+		   String time=jsonObjectWeatherData.getString("date");
 		   
+		   
+		 Log.i("Youle results",cityName+" "+pm25+" "+temp+" "+desc+" "+time);
 		   saveWeatherInfo(context,cityName,pm25,temp,desc,time);
 		   
 			

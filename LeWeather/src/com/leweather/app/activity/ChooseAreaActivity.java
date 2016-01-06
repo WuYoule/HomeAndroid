@@ -16,7 +16,10 @@ import com.leweather.app.util.Utility;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.TextureView;
@@ -62,10 +65,38 @@ public class ChooseAreaActivity extends Activity {
 	// 当前选中的级别
 	private int currentLevel;
 
+	// 是否从WeatherActivity中跳转过来。
+	private boolean isFromWeatherActivity;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		super.onCreate(savedInstanceState);
+
+		isFromWeatherActivity = getIntent().getBooleanExtra(
+				"from_weather_activity", false);
+		
+		 SharedPreferences prefs = PreferenceManager
+				.getDefaultSharedPreferences(this);
+		Log.i("COME isFromWeatherActivity", isFromWeatherActivity+"");
+		Log.i("COME prefs", prefs.getBoolean("city_selected", false)+"");
+		if (prefs.getBoolean("city_selected", false)
+				&& !isFromWeatherActivity) {
+              Log.i("Intent", "here!");
+			Intent intent = new Intent(ChooseAreaActivity.this, WeatherActivity.class);
+			
+		
+			startActivity(intent);
+
+			finish();
+			return;
+
+		}
+
+		
+		
+	
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.choose_area);
 		listView = (ListView) findViewById(R.id.list_view);
@@ -87,14 +118,15 @@ public class ChooseAreaActivity extends Activity {
 						queryCities();
 					}
 				} else if (currentLevel == LEVEL_CITY) {
+					
+					 String cityName=cityList.get(index).getCityName();
+					 Intent intent = new Intent(ChooseAreaActivity.this, WeatherActivity.class); 
+					 intent.putExtra("city_name", cityName); 
 
-//					selectedCity = cityList.get(index);
-//					queryCounties();
+                     startActivity(intent); 
+                     finish();
+					 					
 					
-					String cityCode=cityList.get(index).getCityCode();
-					
-					
-
 				}
 
 			}
@@ -118,42 +150,44 @@ public class ChooseAreaActivity extends Activity {
 		}
 
 	}
-	
+
 	// 查询选中省内所有的市，优先从数据库查询，如果没有查询到再去服务器上查询。
-		private void queryCities() {
-			cityList = leWeatherDB.loadCities(selectedProvince.getId());
-		//	Log.i("queryCities", cityList.size() + "--" + selectedProvince.getId());
-			if (cityList.size() > 0) {
-				dataList.clear();
-				for (City city : cityList) {
-					dataList.add(city.getCityName());
-				}
-				adapter.notifyDataSetChanged();
-				listView.setSelection(0);
-				titleText.setText(selectedProvince.getProvinceName());
-				currentLevel = LEVEL_CITY;
-			} else {
-				queryFromServer(selectedProvince.getProvinceCode(), "city");
-
+	private void queryCities() {
+		cityList = leWeatherDB.loadCities(selectedProvince.getId());
+		// Log.i("queryCities", cityList.size() + "--" +
+		// selectedProvince.getId());
+		if (cityList.size() > 0) {
+			dataList.clear();
+			for (City city : cityList) {
+				dataList.add(city.getCityName());
 			}
-		}
-		// 查询选中市内所有的县，优先从数据库查询，如果没有查询到再去服务器上查询。
-		private void queryCounties() {
-			countyList = leWeatherDB.loadCounties(selectedCity.getId());
-			if (countyList.size() > 0) {
-				dataList.clear();
-				for (County county : countyList) {
-					dataList.add(county.getCountyName());
-				}
-				adapter.notifyDataSetChanged();
-				listView.setSelection(0);
-				titleText.setText(selectedCity.getCityName());
-				currentLevel = LEVEL_COUNTY;
-			} else {
-				queryFromServer(selectedCity.getCityCode(), "county");
+			adapter.notifyDataSetChanged();
+			listView.setSelection(0);
+			titleText.setText(selectedProvince.getProvinceName());
+			currentLevel = LEVEL_CITY;
+		} else {
+			queryFromServer(selectedProvince.getProvinceCode(), "city");
 
-			}
 		}
+	}
+
+	// 查询选中市内所有的县，优先从数据库查询，如果没有查询到再去服务器上查询。
+	private void queryCounties() {
+		countyList = leWeatherDB.loadCounties(selectedCity.getId());
+		if (countyList.size() > 0) {
+			dataList.clear();
+			for (County county : countyList) {
+				dataList.add(county.getCountyName());
+			}
+			adapter.notifyDataSetChanged();
+			listView.setSelection(0);
+			titleText.setText(selectedCity.getCityName());
+			currentLevel = LEVEL_COUNTY;
+		} else {
+			queryFromServer(selectedCity.getCityCode(), "county");
+
+		}
+	}
 
 	private void queryFromServer(final String code, final String type) {
 		String address;
@@ -246,10 +280,6 @@ public class ChooseAreaActivity extends Activity {
 
 	}
 
-	
-
-	
-
 	// 捕获Back按键，根据当前的级别来判断，此时应该返回市列表、省列表、还是直接退出
 	@Override
 	public void onBackPressed() {
@@ -259,7 +289,11 @@ public class ChooseAreaActivity extends Activity {
 		} else if (currentLevel == LEVEL_CITY) {
 			queryProvinces();
 		} else {
-			finish();
+		    if (isFromWeatherActivity) {
+				Intent intent=new Intent(this,WeatherActivity.class);
+				startActivity(intent);
+			}
+		    finish();
 		}
 	}
 }
