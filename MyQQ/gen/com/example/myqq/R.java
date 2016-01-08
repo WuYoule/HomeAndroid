@@ -14,6 +14,7 @@ public final class R {
         public static final int myblack=0x7f040002;
         public static final int mygray=0x7f040003;
         public static final int mygray02=0x7f040004;
+        public static final int mygray03=0x7f040005;
         public static final int myred=0x7f040000;
         public static final int mywhite=0x7f040001;
     }
@@ -48,35 +49,50 @@ public final class R {
         public static final int img_4=0x7f02001b;
         public static final int img_5=0x7f02001c;
         public static final int img_frame_background=0x7f02001d;
-        public static final int qq2=0x7f02001e;
-        public static final int qq3=0x7f02001f;
-        public static final int radius_bg1=0x7f020020;
-        public static final int touxiang=0x7f020021;
-        public static final int w01=0x7f020022;
-        public static final int w02=0x7f020023;
-        public static final int w04=0x7f020024;
-        public static final int w_left=0x7f020025;
-        public static final int w_right=0x7f020026;
-        public static final int welcome=0x7f020027;
-        public static final int welcome_bg=0x7f020028;
-        public static final int welcome_earth=0x7f020029;
+        public static final int load=0x7f02001e;
+        public static final int qq2=0x7f02001f;
+        public static final int qq3=0x7f020020;
+        public static final int radius_bg1=0x7f020021;
+        public static final int selector=0x7f020022;
+        public static final int text_message_48px_1187408_easyicon=0x7f020023;
+        public static final int touxiang=0x7f020024;
+        public static final int w01=0x7f020025;
+        public static final int w02=0x7f020026;
+        public static final int w04=0x7f020027;
+        public static final int w_left=0x7f020028;
+        public static final int w_right=0x7f020029;
+        public static final int welcome=0x7f02002a;
+        public static final int welcome_bg=0x7f02002b;
+        public static final int welcome_earth=0x7f02002c;
     }
     public static final class id {
-        public static final int iv01=0x7f070002;
-        public static final int iv02=0x7f070003;
-        public static final int iv03=0x7f070004;
-        public static final int iv04=0x7f070005;
-        public static final int startBtn=0x7f070006;
+        public static final int anim_text=0x7f07000c;
+        public static final int imageLeft=0x7f07000a;
+        public static final int imageRight=0x7f07000b;
+        public static final int iv=0x7f070002;
+        public static final int iv01=0x7f070006;
+        public static final int iv02=0x7f070007;
+        public static final int iv03=0x7f070008;
+        public static final int iv04=0x7f070009;
+        public static final int realtabcontent=0x7f070004;
+        public static final int startBtn=0x7f07000d;
         public static final int startimage=0x7f070000;
-        public static final int viewpager=0x7f070001;
+        public static final int tab_item_rl=0x7f070001;
+        public static final int tab_item_tv=0x7f070003;
+        public static final int viewpager=0x7f070005;
     }
     public static final class layout {
         public static final int start_activity=0x7f030000;
-        public static final int viewpager_activity=0x7f030001;
-        public static final int viewpager_activity_item1=0x7f030002;
-        public static final int viewpager_activity_item2=0x7f030003;
-        public static final int viewpager_activity_item3=0x7f030004;
-        public static final int viewpager_activity_item4=0x7f030005;
+        public static final int tab_item_contact=0x7f030001;
+        public static final int tab_item_layout=0x7f030002;
+        public static final int tab_item_message=0x7f030003;
+        public static final int tab_item_trends=0x7f030004;
+        public static final int tabhost_activity=0x7f030005;
+        public static final int viewpager_activity=0x7f030006;
+        public static final int viewpager_activity_item1=0x7f030007;
+        public static final int viewpager_activity_item2=0x7f030008;
+        public static final int viewpager_activity_item3=0x7f030009;
+        public static final int viewpager_activity_item4=0x7f03000a;
     }
     public static final class string {
         public static final int app_name=0x7f050000;

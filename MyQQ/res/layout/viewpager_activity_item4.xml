@@ -3,21 +3,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
    
-    android:background="@drawable/w01"
+   
      >
+   <ImageView 
+        android:id="@+id/imageLeft"
+        android:scaleType="fitXY"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/w_left"
+        />
+    <ImageView 
+        android:id="@+id/imageRight"
+        android:visibility="visible"
+        android:scaleType="fitXY"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/w_right"
+        />
+    
+     
+     
      <TextView 
-         android:layout_width="wrap_content"
+         android:id="@+id/anim_text"
+         android:layout_width="match_parent"
          android:layout_height="wrap_content"
           android:layout_centerHorizontal="true"
          android:text="MYQQ,让你变成沟通达人！"
          android:layout_alignParentTop="true"
         android:layout_marginTop="150dp"
-           android:layout_gravity="center_vertical"
+         android:gravity="center_horizontal"
            
          android:textColor="#fff"
          android:textSize="22sp"
          />
-     
       <Button 
           android:id="@+id/startBtn"
           android:layout_width="120dp"

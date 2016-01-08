@@ -23,6 +23,10 @@
             </intent-filter>
         </activity>
         <activity android:name="com.myqq.start.ViewPagerActivity"></activity>
+        <activity android:name="com.myqq.start.WhatsnewDoor"></activity>
+        <activity android:name="com.myqq.Index.MyTabActivity"></activity>
+       
+        
     </application>
 
 </manifest>
