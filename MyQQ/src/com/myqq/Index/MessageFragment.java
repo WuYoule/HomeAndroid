@@ -51,12 +51,12 @@ public class MessageFragment extends Fragment {
 		   InitPopuwindow();
 		
 		
-		 view=	inflater.inflate(R.layout.tab_item_message, container, false);
+		 view=	inflater.inflate(R.layout.main_activity, container, false);
 		 
 		 setTextView=(TextView) view.findViewById(R.id.set);
 			listView=(ListView) view.findViewById(R.id.message_listview);
-			downloader=new Downloader(listView,getActivity());
-			downloader.execute();
+//			downloader=new Downloader(listView,getActivity());
+//			downloader.execute();
 			
 			setTextView.setOnClickListener(new OnClickListener() {
 				
