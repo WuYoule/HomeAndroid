@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <FrameLayout 
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        ></FrameLayout>
+    <RadioGroup 
+        android:id="@+id/main_bottom_tabs"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        >
+        <RadioButton 
+            android:id="@+id/main_home"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="首页"
+            android:drawableTop="@drawable/main_home_selector"
+            android:gravity="center"
+            android:button="@null"
+            />
+        <RadioButton 
+            android:id="@+id/main_tuan"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="团购"
+              android:gravity="center"
+              android:drawableTop="@drawable/main_tuan_selector"
+             android:button="@null"
+            />
+        <RadioButton 
+            android:id="@+id/main_search"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/main_search_selector"
+            android:text="发现"
+              android:gravity="center"
+             android:button="@null"
+            />
+        <RadioButton 
+            android:id="@+id/main_my"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/main_my_selector"
+            android:text="我的"
+              android:gravity="center"
+             android:button="@null"
+            />
+    </RadioGroup>
+    
+
+</LinearLayout>
