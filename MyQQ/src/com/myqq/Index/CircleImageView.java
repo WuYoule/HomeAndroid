@@ -110,8 +110,8 @@ public class CircleImageView extends ImageView {
             r = width;  
         }  
         //构建一个bitmap  
-        Bitmap backgroundBmp = Bitmap.createBitmap(width,  
-                 height, Config.ARGB_8888);  
+        Bitmap backgroundBmp = Bitmap.createBitmap(r,  
+                 r, Config.ARGB_8888);  
         //new一个Canvas，在backgroundBmp上画图  
         Canvas canvas = new Canvas(backgroundBmp);  
         Paint paint = new Paint();  
