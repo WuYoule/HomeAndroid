@@ -39,7 +39,7 @@ public class WelcomeGuideActivity extends Activity {
 
 	@OnClick(R.id.welcome_guide_btn)
 	public void click(View view) {
-       startActivity(new Intent(getApplicationContext(),Test.class) );
+       startActivity(new Intent(getApplicationContext(),MainActivity.class) );
        finish();
 	}
 

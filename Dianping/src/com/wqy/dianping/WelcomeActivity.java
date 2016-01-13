@@ -34,7 +34,7 @@ public class WelcomeActivity extends Activity {
 			@Override
 			public void run() {
 				if (SharedUtils.getWelcomeBoolean(getApplicationContext())) {
-					startActivity(new Intent(getApplicationContext(), Test.class));
+					startActivity(new Intent(getApplicationContext(), MainActivity.class));
 				}
 				else {
 				

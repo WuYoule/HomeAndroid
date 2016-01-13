@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
-    <FrameLayout 
+    <FrameLayout
+        android:id="@+id/main_content"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -21,6 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="首页"
+            android:textColor="@drawable/main_color_selector"
             android:drawableTop="@drawable/main_home_selector"
             android:gravity="center"
             android:button="@null"
@@ -31,6 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="团购"
+            android:textColor="@drawable/main_color_selector"
               android:gravity="center"
               android:drawableTop="@drawable/main_tuan_selector"
              android:button="@null"
@@ -42,6 +45,7 @@
             android:layout_height="wrap_content"
             android:drawableTop="@drawable/main_search_selector"
             android:text="发现"
+            android:textColor="@drawable/main_color_selector"
               android:gravity="center"
              android:button="@null"
             />
@@ -52,6 +56,7 @@
             android:layout_height="wrap_content"
             android:drawableTop="@drawable/main_my_selector"
             android:text="我的"
+            android:textColor="@drawable/main_color_selector"
               android:gravity="center"
              android:button="@null"
             />
