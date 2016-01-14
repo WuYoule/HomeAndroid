@@ -48,7 +48,7 @@ public class FragmentHome extends Fragment implements LocationListener {
 		
 		//获取数据并且显示
 		Log.i("TAG","onCreateView" );
-		//Toast.makeText(getActivity(), SharedUtils.getCityName(getActivity()), Toast.LENGTH_SHORT).show();
+		Toast.makeText(getActivity(), SharedUtils.getCityName(getActivity()), Toast.LENGTH_SHORT).show();
 		topCity.setText( SharedUtils.getCityName(getActivity()));
 		return view;
 
@@ -161,10 +161,13 @@ public class FragmentHome extends Fragment implements LocationListener {
 	public void onDestroy() {
 		// TODO Auto-generated method stub
 		super.onDestroy();
+		Log.i("TAG","onDestroy 1" );
 		//保存城市
 		SharedUtils.putCityName(getActivity(), cityName);
+		Log.i("TAG","onDestroy 2" );
 		//停止定位
 		stopLocation();
+		Log.i("TAG","onDestroy 3" );
 	}
 	//停止定位
 	private void stopLocation(){
