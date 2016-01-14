@@ -42,7 +42,7 @@ public class MainActivity extends FragmentActivity implements
 		group.setOnCheckedChangeListener(this);
 		
 		//Ä¬ÈÏÊ×Ò³fragment
-		changeFragment(new FragmentHome(), false);
+		changeFragment(new FragmentHome(), true);
 	}
 
 	@Override
