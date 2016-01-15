@@ -1,13 +1,18 @@
 package com.wqy.dianping.fragment;
 
 import java.io.IOException;
+import java.util.IllegalFormatCodePointException;
 import java.util.List;
 
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
+import com.lidroid.xutils.view.annotation.event.OnClick;
+import com.wqy.dianping.CityActivity;
 import com.wqy.dianping.R;
 import com.wqy.dianping.utils.SharedUtils;
+import com.wqy.utils.MyUtils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap.Config;
@@ -42,50 +47,75 @@ public class FragmentHome extends Fragment implements LocationListener {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 
-		View view = inflater.inflate(R.layout.home_index, container,false);
+		View view = inflater.inflate(R.layout.home_index, container, false);
 		ViewUtils.inject(this, view);
-		
-		
-		//获取数据并且显示
-		Log.i("TAG","onCreateView" );
-		Toast.makeText(getActivity(), SharedUtils.getCityName(getActivity()), Toast.LENGTH_SHORT).show();
-		topCity.setText( SharedUtils.getCityName(getActivity()));
+
+		// 获取数据并且显示
+		Log.i("TAG", "onCreateView");
+		Toast.makeText(getActivity(), SharedUtils.getCityName(getActivity()),
+				Toast.LENGTH_SHORT).show();
+		topCity.setText(SharedUtils.getCityName(getActivity()));
 		return view;
 
 	}
 
+	@OnClick({R.id.index_top_city})
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.index_top_city:// 城市
+              startActivityForResult(new Intent(getActivity(), CityActivity.class), MyUtils.RequestCityCode);
+			break;
+
+		default:
+			break;
+		}
+
+	}
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		super.onActivityResult(requestCode, resultCode, data);
+      if (requestCode==MyUtils.RequestCityCode&&resultCode==Activity.RESULT_OK) {
+		cityName=data.getStringExtra("cityName");
+		topCity.setText(cityName);
+	}
+	}
 
 	@Override
 	public void onStart() {
 
 		super.onStart();
-		Log.i("TAG","onStart" );
-		//检查当前的gps模块
+		Log.i("TAG", "onStart");
+		// 检查当前的gps模块
 		checkGPSIsOpen();
 	}
-	
-	//检查是否打开gps
+
+	// 检查是否打开gps
 	private void checkGPSIsOpen() {
-		locationManager=(LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
-		boolean isOpen=locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+		locationManager = (LocationManager) getActivity().getSystemService(
+				Context.LOCATION_SERVICE);
+		boolean isOpen = locationManager
+				.isProviderEnabled(LocationManager.GPS_PROVIDER);
 		if (!isOpen) {
-			//进入GPS设置页面
-			Intent intent=new Intent();
+			// 进入GPS设置页面
+			Intent intent = new Intent();
 			intent.setAction(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
 			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			startActivityForResult(intent, 0);
 		}
-		//开始定位
+		// 开始定位
 		startLocation();
-		
+
 	}
+
 	private void startLocation() {
-		Log.i("TAG","startLocation" );
-		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 2000, 10, this);
-		
+		Log.i("TAG", "startLocation");
+		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
+				2000, 10, this);
+
 	}
-	
-	//接收并处理消息
+
+	// 接收并处理消息
 	private Handler handler = new Handler(new Handler.Callback() {
 
 		@Override
@@ -105,7 +135,7 @@ public class FragmentHome extends Fragment implements LocationListener {
 	// 位置信息更改执行的方法
 	@Override
 	public void onLocationChanged(Location location) {
-		Log.i("TAG","onLocationChanged" );
+		Log.i("TAG", "onLocationChanged");
 		updateWithNewLocation(location);
 
 	}
@@ -139,7 +169,7 @@ public class FragmentHome extends Fragment implements LocationListener {
 				cityName = address.getLocality();// 获取城市
 			}
 		}
-       //发送空消息
+		// 发送空消息
 		handler.sendEmptyMessage(1);
 	}
 
@@ -157,21 +187,23 @@ public class FragmentHome extends Fragment implements LocationListener {
 	public void onProviderDisabled(String provider) {
 
 	}
+
 	@Override
 	public void onDestroy() {
 		// TODO Auto-generated method stub
 		super.onDestroy();
-		Log.i("TAG","onDestroy 1" );
-		//保存城市
+		Log.i("TAG", "onDestroy 1");
+		// 保存城市
 		SharedUtils.putCityName(getActivity(), cityName);
-		Log.i("TAG","onDestroy 2" );
-		//停止定位
+		Log.i("TAG", "onDestroy 2");
+		// 停止定位
 		stopLocation();
-		Log.i("TAG","onDestroy 3" );
+		Log.i("TAG", "onDestroy 3");
 	}
-	//停止定位
-	private void stopLocation(){
+
+	// 停止定位
+	private void stopLocation() {
 		locationManager.removeUpdates(this);
-		
+
 	}
 }

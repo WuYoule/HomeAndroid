@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <TextView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:padding="3dp"
+       android:background="#DAD5D3"
+       android:text="定位城市"
+        />
+    <TextView 
+        android:id="@+id/index_city_item_searchcity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:gravity="center_vertical"
+        android:drawableLeft="@drawable/location"
+        android:text="正在定位中..."
+        />
+
+</LinearLayout>
