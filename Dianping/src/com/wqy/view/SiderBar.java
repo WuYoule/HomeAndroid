@@ -1,11 +1,15 @@
 package com.wqy.view;
 
+import com.wqy.dianping.R;
+
+import android.R.integer;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 
 
@@ -34,7 +38,7 @@ public class SiderBar extends View {
 		paint=new Paint();
 		paint.setColor(Color.GRAY);//设置画笔颜色
 		paint.setTypeface(Typeface.DEFAULT_BOLD);//字体粗体
-		paint.setTextSize(20);//画出来字体大小
+		paint.setTextSize(40);//画出来字体大小
 		//获取自定义控件的宽高
 		int height=getHeight();
 		int width=getWidth();
@@ -49,7 +53,48 @@ public class SiderBar extends View {
 			canvas.drawText(sidebar[i], x, y, paint);
 		}
 	}
+	
+	private OnTouchingLetterChangedListener onTouchingLetterChangedListener;
+	private int choose;
+	//定义监听事件
+	public interface OnTouchingLetterChangedListener{
+		public void OnTouchingLetterChanged(String s);
+	}
+	public void setOnTouchingLetterChangedListener(OnTouchingLetterChangedListener onTouchingLetterChangedListener){
+		this.onTouchingLetterChangedListener=onTouchingLetterChangedListener;
+		
+	}
+	
+	//分发对应的touch事件
+	@Override
+	public boolean dispatchTouchEvent(MotionEvent event) {
+	
+		final int action=event.getAction();//获取对应的动作
+		final float y=event.getY();//点击的Y坐标
+		final OnTouchingLetterChangedListener listener=onTouchingLetterChangedListener;
+	    final int c=(int)(y/getHeight()*sidebar.length);
+	    switch (action) {
+		case MotionEvent.ACTION_UP://手指抬起
+			setBackgroundResource(android.R.color.transparent);
+			invalidate();
+			break;
 
+		default:
+			setBackgroundResource(R.color.normal_bg_color);
+			
+			if (c>0&&c<sidebar.length) {
+				listener.OnTouchingLetterChanged(sidebar[c]);
+			}
+			choose=c;
+			invalidate();
+			
+			break;
+		}
+		
+		
+		
+		return true;
+	}
 	 
 	
 }

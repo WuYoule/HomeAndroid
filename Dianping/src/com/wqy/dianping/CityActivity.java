@@ -1,6 +1,8 @@
 package com.wqy.dianping;
 
 import java.io.IOException;
+import java.lang.annotation.Retention;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.IllegalFormatCodePointException;
 import java.util.List;
@@ -8,6 +10,7 @@ import java.util.List;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.conn.DefaultClientConnection;
@@ -23,12 +26,16 @@ import com.lidroid.xutils.view.annotation.event.OnItemClick;
 import com.wqy.consts.CONSTS;
 import com.wqy.entity.City;
 import com.wqy.entity.ResponseObject;
+import com.wqy.view.SiderBar;
+import com.wqy.view.SiderBar.OnTouchingLetterChangedListener;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,13 +44,18 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class CityActivity extends Activity  {
+
+public class CityActivity extends Activity implements OnTouchingLetterChangedListener {
 
 	@ViewInject(R.id.city_list)
 	private ListView listDatas;
 	
 	private List<City> cityList;
+	
+	@ViewInject(R.id.city_sider_bar)
+	private SiderBar siderBar;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -55,6 +67,8 @@ public class CityActivity extends Activity  {
 		listDatas.addHeaderView(view);
 		//开启异步任务
 		new CityDataTask().execute();
+		
+		siderBar.setOnTouchingLetterChangedListener(this);
 		
 		
 	}
@@ -92,13 +106,15 @@ public class CityActivity extends Activity  {
 		@Override
 		protected List<City> doInBackground(Void... params) {
 			HttpClient client=new DefaultHttpClient();
-			HttpPost httpPost=new HttpPost(CONSTS.City_Data_URI);
+			//Log.i("Tag", CONSTS.City_Data_URI);
+			HttpGet httpGet=new HttpGet(CONSTS.City_Data_URI);
 			
 			HttpResponse httpResponse;
 			try {
-				httpResponse = client.execute(httpPost);
+				httpResponse = client.execute(httpGet);
 				if (httpResponse.getStatusLine().getStatusCode()==200) {
 					String jsonString=EntityUtils.toString(httpResponse.getEntity());
+				//	Log.i("Tag", jsonString);
 					return parseCityDatasJSON(jsonString);
 				}
 			} catch (Exception e) {
@@ -113,6 +129,7 @@ public class CityActivity extends Activity  {
 		protected void onPostExecute(List<City> result) {
 			
 			super.onPostExecute(result);
+		//	Log.i("COUNT",result.get(1).toString());
 			cityList=result;
 			//适配显示
 			MyAadapter adapter=new  MyAadapter(cityList);
@@ -121,8 +138,11 @@ public class CityActivity extends Activity  {
 		}
 
 		private List<City> parseCityDatasJSON(String jsonString) {
+		//	Log.i("Tag1111",jsonString);
 			Gson gson=new Gson();
-			ResponseObject<List<City>> citities=gson.fromJson(jsonString, new TypeToken<ResponseObject<List<City>>>(){}.getType());
+			Type listType=new TypeToken<ResponseObject<List<City>>>(){}.getType();
+			ResponseObject<List<City>> citities=gson.fromJson(jsonString, listType);
+			
 			return citities.getDatas();
 		}
 		
@@ -169,8 +189,9 @@ public class CityActivity extends Activity  {
 				}
 				//数据显示处理
 				City city=listCityDatas.get(position);
-				String sort=city.getSortkey();
-				String name=city.getName();
+				String sort=city.getCity_sortkey();
+				String name=city.getCity_name();
+			//	Log.i("TAG",sort+"="+name);
 				if (buffer.indexOf(sort)==-1) {
 					buffer.append(sort);
 					firstList.add(name);
@@ -182,6 +203,7 @@ public class CityActivity extends Activity  {
 				else {
 					holder.keySort.setVisibility(View.GONE);
 				}
+				holder.keySort.setText(sort);
 				holder.cityName.setText(name);
 				return convertView;
 			}
@@ -194,6 +216,32 @@ public class CityActivity extends Activity  {
 			public TextView cityName;
 			
 		}
+		
+	}
+
+
+	@Override
+	public void OnTouchingLetterChanged(String s) {
+		//找到listview中显示的索引位置
+   listDatas.setSelection(findIndex(cityList, s));
+		
+		
+	}
+	public int findIndex(List<City> list,String s){
+		if (list!=null) {
+			for (int i = 0; i < list.size(); i++) {
+				City city=list.get(i);
+				//根据city中的sortkey进行比较
+				if (s.equals(city.getCity_sortkey())) {
+					return i;
+				}
+				
+				
+			}
+		}else {
+			Toast.makeText(getApplication(), "暂无信息", 1).show();
+		}
+		return -1;
 		
 	}
 	

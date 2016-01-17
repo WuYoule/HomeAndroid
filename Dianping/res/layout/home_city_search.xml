@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:paddingLeft="10dp"
         android:gravity="center_vertical"
-        android:drawableLeft="@drawable/location"
+        android:drawableLeft="@drawable/location_arrow"
         android:text="正在定位中..."
         />
 

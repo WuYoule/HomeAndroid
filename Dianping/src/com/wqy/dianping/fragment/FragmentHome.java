@@ -7,6 +7,7 @@ import java.util.List;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
+import com.wqy.dianping.AllCategroyActivity;
 import com.wqy.dianping.CityActivity;
 import com.wqy.dianping.R;
 import com.wqy.dianping.utils.SharedUtils;
@@ -30,7 +31,11 @@ import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,6 +48,9 @@ public class FragmentHome extends Fragment implements LocationListener {
 
 	private LocationManager locationManager;
 
+	@ViewInject(R.id.home_nav_sort)
+	private GridView navSort;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -52,18 +60,22 @@ public class FragmentHome extends Fragment implements LocationListener {
 
 		// 获取数据并且显示
 		Log.i("TAG", "onCreateView");
-		Toast.makeText(getActivity(), SharedUtils.getCityName(getActivity()),
-				Toast.LENGTH_SHORT).show();
-		topCity.setText(SharedUtils.getCityName(getActivity()));
+		// Toast.makeText(getActivity(), SharedUtils.getCityName(getActivity()),
+		// Toast.LENGTH_SHORT).show();
+		// topCity.setText(SharedUtils.getCityName(getActivity()));
+		
+		navSort.setAdapter(new NavAdapter());
 		return view;
 
 	}
 
-	@OnClick({R.id.index_top_city})
+	@OnClick({ R.id.index_top_city })
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.index_top_city:// 城市
-              startActivityForResult(new Intent(getActivity(), CityActivity.class), MyUtils.RequestCityCode);
+			startActivityForResult(
+					new Intent(getActivity(), CityActivity.class),
+					MyUtils.RequestCityCode);
 			break;
 
 		default:
@@ -71,14 +83,16 @@ public class FragmentHome extends Fragment implements LocationListener {
 		}
 
 	}
+
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, data);
-      if (requestCode==MyUtils.RequestCityCode&&resultCode==Activity.RESULT_OK) {
-		cityName=data.getStringExtra("cityName");
-		topCity.setText(cityName);
-	}
+		if (requestCode == MyUtils.RequestCityCode
+				&& resultCode == Activity.RESULT_OK) {
+			cityName = data.getStringExtra("cityName");
+			topCity.setText(cityName);
+		}
 	}
 
 	@Override
@@ -87,7 +101,7 @@ public class FragmentHome extends Fragment implements LocationListener {
 		super.onStart();
 		Log.i("TAG", "onStart");
 		// 检查当前的gps模块
-		checkGPSIsOpen();
+		// checkGPSIsOpen();
 	}
 
 	// 检查是否打开gps
@@ -197,7 +211,7 @@ public class FragmentHome extends Fragment implements LocationListener {
 		SharedUtils.putCityName(getActivity(), cityName);
 		Log.i("TAG", "onDestroy 2");
 		// 停止定位
-		stopLocation();
+		// stopLocation();
 		Log.i("TAG", "onDestroy 3");
 	}
 
@@ -206,4 +220,63 @@ public class FragmentHome extends Fragment implements LocationListener {
 		locationManager.removeUpdates(this);
 
 	}
+
+	public class NavAdapter extends BaseAdapter {
+
+		@Override
+		public int getCount() {
+			// TODO Auto-generated method stub
+			return MyUtils.navSort.length;
+		}
+
+		@Override
+		public Object getItem(int position) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public long getItemId(int position) {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+		
+			MyHolder holder;
+			if (convertView==null) {
+				holder=new MyHolder();
+				convertView=LayoutInflater.from(parent.getContext()).inflate(R.layout.home_index_nav_item, null);
+				ViewUtils.inject(holder, convertView);
+				convertView.setTag(holder);
+				
+			}
+			else {
+				holder=(MyHolder) convertView.getTag();
+			}
+			holder.textView.setText(MyUtils.navSort[position]);
+			holder.imageView.setImageResource(MyUtils.navSortImages[position]);
+			//选中全部
+			if (position==MyUtils.navSort.length-1) {
+				holder.imageView.setOnClickListener(new OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						startActivity(new Intent(getActivity(), AllCategroyActivity.class));
+						
+					}
+				});
+			}
+			return convertView;
+		}
+
+	}
+	public class MyHolder{
+		@ViewInject(R.id.home_nav_item_desc)
+		public  TextView textView;
+		@ViewInject(R.id.home_nav_item_image)
+		public ImageView imageView;
+	}
+
 }

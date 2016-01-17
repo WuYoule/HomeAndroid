@@ -42,13 +42,16 @@
         >
     <ListView 
         android:id="@+id/city_list"
+        android:scrollbars="none"
+       android:listSelector="@color/normal_bg_color"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp"
+       
         ></ListView>
     <com.wqy.view.SiderBar
         android:id="@+id/city_sider_bar"
         android:layout_width="45dp"
+        
          android:layout_height="match_parent"
          android:layout_alignParentRight="true"
         ></com.wqy.view.SiderBar>
