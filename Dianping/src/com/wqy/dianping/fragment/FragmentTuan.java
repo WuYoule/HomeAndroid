@@ -16,13 +16,16 @@ import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 import com.lidroid.xutils.view.annotation.ViewInject;
+import com.lidroid.xutils.view.annotation.event.OnItemClick;
 import com.squareup.picasso.Picasso;
 import com.wqy.consts.CONSTS;
+import com.wqy.dianping.GoodsDetailActivity;
 import com.wqy.dianping.R;
 import com.wqy.entity.Categroy;
 import com.wqy.entity.Goods;
 import com.wqy.entity.ResponseObject;
 
+import android.content.Intent;
 import android.graphics.AvoidXfermode.Mode;
 import android.os.Bundle;
 import android.os.Handler;
@@ -35,6 +38,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -48,6 +53,18 @@ public class FragmentTuan extends Fragment {
 	protected List<Goods> goods;
 
 	private MyAdapter adapter;
+
+	// 当商品列表点击的时候显示详情
+	@OnItemClick(R.id.index_listGoods)
+	public void OnItemClick(AdapterView<?> parent, View view, int position,
+			long id) {
+           Intent intent=new Intent(getActivity(),GoodsDetailActivity.class);
+           Bundle bundle = new Bundle();
+           bundle.putSerializable("goods", goods.get(position-1));
+           intent.putExtras(bundle);
+           
+           startActivity(intent);
+	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -64,7 +81,7 @@ public class FragmentTuan extends Fragment {
 			@Override
 			public void onRefresh(PullToRefreshBase<ListView> refreshView) {
 				// 下拉刷新 y<0
-				loadDatas(listviewGoods.getScaleY() < 0);
+				loadDatas(listviewGoods.getScrollY() < 0);
 
 			}
 		});
@@ -74,7 +91,7 @@ public class FragmentTuan extends Fragment {
 
 			@Override
 			public boolean handleMessage(Message msg) {
-				
+
 				listviewGoods.setRefreshing();
 				return true;
 			}
@@ -135,15 +152,15 @@ public class FragmentTuan extends Fragment {
 							adapter = new MyAdapter();
 							listviewGoods.setAdapter(adapter);
 						} else {// 加载更多
-							if (page == 1) {
-								goods = object.getDatas();
-								adapter = new MyAdapter();
-								listviewGoods.setAdapter(adapter);
-							} else {
-								Log.i("TAG333", object.getDatas().size() + "");
-								goods.addAll(object.getDatas());
-								adapter.notifyDataSetChanged();
-							}
+						// if (page == 1) {
+						// goods = object.getDatas();
+						// adapter = new MyAdapter();
+						// listviewGoods.setAdapter(adapter);
+						// } else {
+							Log.i("TAG333", object.getDatas().size() + "");
+							goods.addAll(object.getDatas());
+							adapter.notifyDataSetChanged();
+							// }
 
 						}
 

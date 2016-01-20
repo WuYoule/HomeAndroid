@@ -1,6 +1,8 @@
 package com.wqy.entity;
 
-public class Goods {
+import java.io.Serializable;
+
+public class Goods implements Serializable {
 	private String id;//商品id
 	private String categoryId;//分类id
 	private String shopId;//商家id

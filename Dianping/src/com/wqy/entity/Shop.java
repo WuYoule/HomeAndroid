@@ -1,6 +1,8 @@
 package com.wqy.entity;
 
-public class Shop {
+import java.io.Serializable;
+
+public class Shop implements Serializable{
 	private String shop_id;
 	private String shop_name;
 	private String shop_tel;
