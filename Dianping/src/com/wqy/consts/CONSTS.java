@@ -8,4 +8,9 @@ public class CONSTS {
 	public static final String Categroy_Data_URI=HOST+"/api/categroy";
 	
 	public static final String Good_Data_URI=HOST+"/api/goods";
+	public static final String Good_NearBy_URI=HOST+"/api/nearby";
+	
+	
+	public static final String Login_URI=HOST+"/api/user?flag=login";
+	
 }

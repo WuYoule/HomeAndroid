@@ -4,6 +4,9 @@ package com.wqy.dianping;
 
 
 
+import java.lang.reflect.Type;
+import java.util.List;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +14,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 
@@ -20,11 +24,25 @@ import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationClientOption.AMapLocationMode;
 import com.amap.api.location.AMapLocationListener;
 import com.amap.api.mapcore.t;
+import com.amap.api.mapcore.util.br;
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.LocationSource;
 import com.amap.api.maps.MapView;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.ViewUtils;
+import com.lidroid.xutils.exception.HttpException;
+import com.lidroid.xutils.http.RequestParams;
+import com.lidroid.xutils.http.ResponseInfo;
+import com.lidroid.xutils.http.callback.RequestCallBack;
+import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 import com.lidroid.xutils.view.annotation.ViewInject;
+import com.lidroid.xutils.view.annotation.event.OnClick;
+import com.wqy.consts.CONSTS;
+import com.wqy.entity.City;
+import com.wqy.entity.Goods;
+import com.wqy.entity.ResponseObject;
 
 
 /**
@@ -40,7 +58,8 @@ public class NearbyMapActivity extends Activity implements LocationSource,
 	private AMapLocationClientOption mLocationOption;
 	private RadioGroup mGPSModeGroup;
 	
-	private TextView mLocationErrText;
+	private double lon;
+	private double lan;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +72,44 @@ public class NearbyMapActivity extends Activity implements LocationSource,
 		init();
 	}
 
+	@OnClick({R.id.search_back,R.id.search_refresh})
+	public void onClick(View v){
+		switch (v.getId()) {
+		case R.id.search_back:
+			finish();
+			break;
+		case R.id.search_refresh:
+			loadData(String.valueOf(lon),String.valueOf(lan),"1000");
+			break;
+		default:
+			break;
+		}
+	}
+	//按照定位的地址和搜索半径加载周边的数据
+	private void loadData(String lon,String lan,String radius) {
+        RequestParams params=new RequestParams();
+        params.addQueryStringParameter("lon",lon);
+        params.addQueryStringParameter("lan",lan);
+        params.addQueryStringParameter("radius",radius);
+        new HttpUtils().send(HttpMethod.GET, CONSTS.Good_NearBy_URI, params, new RequestCallBack<String>() {
+
+			@Override
+			public void onFailure(HttpException arg0, String arg1) {
+				Toast.makeText(getApplication(), "加载数据失败", Toast.LENGTH_SHORT).show();
+				
+			}
+
+			@Override
+			public void onSuccess(ResponseInfo<String> arg0) {
+				Type listType=new TypeToken<ResponseObject<List<Goods>>>(){}.getType();
+			   ResponseObject<List<Goods>> object=	new GsonBuilder().create().fromJson(arg0.result,listType);
+				 
+				
+			}
+		});
+		
+	}
+
 	/**
 	 * 初始化
 	 */
@@ -61,10 +118,7 @@ public class NearbyMapActivity extends Activity implements LocationSource,
 			aMap = mapView.getMap();
 			setUpMap();
 		}
-//		mGPSModeGroup = (RadioGroup) findViewById(R.id.gps_radio_group);
-//		mGPSModeGroup.setOnCheckedChangeListener(this);
-////		mLocationErrText = (TextView)findViewById(R.id.location_errInfo_text);
-//		mLocationErrText.setVisibility(View.GONE);
+
 	}
 
 	/**
@@ -78,24 +132,7 @@ public class NearbyMapActivity extends Activity implements LocationSource,
 		aMap.setMyLocationType(AMap.LOCATION_TYPE_LOCATE);
 	}
 
-//	@Override
-//	public void onCheckedChanged(RadioGroup group, int checkedId) {
-//		switch (checkedId) {
-//		case R.id.gps_locate_button:
-//			// 设置定位的类型为定位模式
-//			aMap.setMyLocationType(AMap.LOCATION_TYPE_LOCATE);
-//			break;
-//		case R.id.gps_follow_button:
-//			// 设置定位的类型为 跟随模式
-//			aMap.setMyLocationType(AMap.LOCATION_TYPE_MAP_FOLLOW);
-//			break;
-//		case R.id.gps_rotate_button:
-//			// 设置定位的类型为根据地图面向方向旋转
-//			aMap.setMyLocationType(AMap.LOCATION_TYPE_MAP_ROTATE);
-//			break;
-//		}
-//
-//	}
+
 
 	/**
 	 * 方法必须重写
@@ -145,13 +182,13 @@ public class NearbyMapActivity extends Activity implements LocationSource,
 		if (mListener != null && amapLocation != null) {
 			if (amapLocation != null
 					&& amapLocation.getErrorCode() == 0) {
-//				mLocationErrText.setVisibility(View.GONE);
+                 lan=  amapLocation.getLatitude();
+                 lon=amapLocation.getLongitude();
 				mListener.onLocationChanged(amapLocation);// 显示系统小蓝点
 			} else {
 				String errText = "定位失败," + amapLocation.getErrorCode()+ ": " + amapLocation.getErrorInfo();
 				Log.e("AmapErr",errText);
-//				mLocationErrText.setVisibility(View.VISIBLE);
-//				mLocationErrText.setText(errText);
+
 			}
 		}
 	}
