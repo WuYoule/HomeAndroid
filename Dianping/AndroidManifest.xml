@@ -52,6 +52,8 @@
         </activity>
         <activity android:name="com.wqy.dianping.NearbyMapActivity" >
         </activity>
+        <activity android:name="com.wqy.dianping.MyLoginActivity"></activity>
+        <activity android:name="com.wqy.dianping.RegisterActivity"></activity>
         <!-- 定位需要的服务 使用2.0的定位需要加上这个 -->
         <service android:name="com.amap.api.location.APSService" >
         </service>

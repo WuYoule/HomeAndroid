@@ -40,4 +40,15 @@ public class MyUtils {
 	
 	public static long[] allCategroyNumber=new long[allCategroy.length+5];
 	
+	private static final String RANDOMS="123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	public static String getRandom(int num){
+		StringBuffer sbf=new StringBuffer();
+		for (int i = 0; i < num; i++) {
+			int random=(int)(Math.random()*(RANDOMS.length()));
+		   sbf.append(RANDOMS.charAt(random));
+		}
+		return sbf.toString();
+		
+	}
+	
 }
