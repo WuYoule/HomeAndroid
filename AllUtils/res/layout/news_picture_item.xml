@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    android:gravity="center"
+     >
+    
+    <com.youle.allutils.view.photoview.PhotoView
+        android:src="@drawable/logo0"
+        
+        android:id="@+id/picture_iv_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+    <TextView 
+        android:background="#cc666666"
+        
+       android:id="@+id/picture_tv_title"
+       android:layout_height="20dp"
+       android:textColor="#fff"
+       android:text="图片标题"
+       android:layout_below="@id/picture_iv_item"
+       android:layout_width="match_parent"
+       android:paddingLeft="10dp"
+        />
+
+</RelativeLayout>

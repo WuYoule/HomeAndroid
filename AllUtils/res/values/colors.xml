@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color  name="defalut_color">#7E7E7E</color>
+    <color name="selected_color">#FF6000</color>
+    <color name="lunbo_selected">#C8E7B496</color>
+    <color name="lunbo_default">#00000000</color>
+</resources>
