@@ -10,6 +10,14 @@ package com.youle.allutils;
 public final class R {
     public static final class attr {
     }
+    public static final class color {
+        public static final int defalut_color=0x7f040000;
+        public static final int find_car=0x7f040004;
+        public static final int find_default_car=0x7f040005;
+        public static final int lunbo_default=0x7f040003;
+        public static final int lunbo_selected=0x7f040002;
+        public static final int selected_color=0x7f040001;
+    }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
 
@@ -18,25 +26,96 @@ public final class R {
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
     
          */
-        public static final int activity_horizontal_margin=0x7f040000;
-        public static final int activity_vertical_margin=0x7f040001;
+        public static final int activity_horizontal_margin=0x7f050000;
+        public static final int activity_vertical_margin=0x7f050001;
     }
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
+        public static final int logo=0x7f020001;
+        public static final int logo0=0x7f020002;
+        public static final int tab_selector=0x7f020003;
     }
     public static final class id {
-        public static final int action_settings=0x7f080000;
+        public static final int action_settings=0x7f09002f;
+        public static final int car_flyt_content=0x7f090000;
+        public static final int car_iv_ask=0x7f09000b;
+        public static final int car_iv_find=0x7f090005;
+        public static final int car_iv_my=0x7f09000e;
+        public static final int car_iv_news=0x7f090002;
+        public static final int car_iv_price=0x7f090008;
+        public static final int car_llyt_ask=0x7f09000a;
+        public static final int car_llyt_find=0x7f090004;
+        public static final int car_llyt_my=0x7f09000d;
+        public static final int car_llyt_news=0x7f090001;
+        public static final int car_llyt_price=0x7f090007;
+        public static final int car_picture_iv_back=0x7f09002c;
+        public static final int car_picture_tv_index=0x7f09002d;
+        public static final int car_picture_vp=0x7f09002b;
+        public static final int car_tv_ask=0x7f09000c;
+        public static final int car_tv_find=0x7f090006;
+        public static final int car_tv_my=0x7f09000f;
+        public static final int car_tv_news=0x7f090003;
+        public static final int car_tv_price=0x7f090009;
+        public static final int fragment_find_flyt_content=0x7f090014;
+        public static final int fragment_find_llyt_switch=0x7f090011;
+        public static final int fragment_find_tv_brand=0x7f090012;
+        public static final int fragment_find_tv_filter=0x7f090013;
+        public static final int item_iv_img=0x7f090025;
+        public static final int item_tv_count=0x7f090028;
+        public static final int item_tv_time=0x7f090027;
+        public static final int item_tv_title=0x7f090026;
+        public static final int news_head_tv=0x7f090024;
+        public static final int news_head_tv1=0x7f09001f;
+        public static final int news_head_tv2=0x7f090020;
+        public static final int news_head_tv3=0x7f090021;
+        public static final int news_head_tv4=0x7f090022;
+        public static final int news_head_tv5=0x7f090023;
+        public static final int news_head_vp=0x7f09001e;
+        public static final int news_important_lv=0x7f090015;
+        public static final int news_tv_buy=0x7f090018;
+        public static final int news_tv_important=0x7f090016;
+        public static final int news_tv_market=0x7f09001b;
+        public static final int news_tv_newcar=0x7f090017;
+        public static final int news_tv_picture=0x7f09001a;
+        public static final int news_tv_try=0x7f090019;
+        public static final int news_vp=0x7f09001c;
+        public static final int picture_iv_item=0x7f090029;
+        public static final int picture_tv_title=0x7f09002a;
+        public static final int textView1=0x7f090010;
+        public static final int toast_content=0x7f09002e;
+        public static final int viewpager_head_item_img=0x7f09001d;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
+        public static final int fragment_ask_main=0x7f030001;
+        public static final int fragment_find_brand_main=0x7f030002;
+        public static final int fragment_find_filter_main=0x7f030003;
+        public static final int fragment_find_main=0x7f030004;
+        public static final int fragment_my_main=0x7f030005;
+        public static final int fragment_news_buy=0x7f030006;
+        public static final int fragment_news_important=0x7f030007;
+        public static final int fragment_news_main=0x7f030008;
+        public static final int fragment_news_market=0x7f030009;
+        public static final int fragment_news_newcar=0x7f03000a;
+        public static final int fragment_news_picture=0x7f03000b;
+        public static final int fragment_news_try=0x7f03000c;
+        public static final int fragment_price_main=0x7f03000d;
+        public static final int index=0x7f03000e;
+        public static final int listview_loading_view=0x7f03000f;
+        public static final int news_head_item=0x7f030010;
+        public static final int news_head_view=0x7f030011;
+        public static final int news_item=0x7f030012;
+        public static final int news_picture_item=0x7f030013;
+        public static final int news_picture_main=0x7f030014;
+        public static final int toast_common=0x7f030015;
     }
     public static final class menu {
-        public static final int main=0x7f070000;
+        public static final int main=0x7f080000;
     }
     public static final class string {
-        public static final int action_settings=0x7f050002;
-        public static final int app_name=0x7f050000;
-        public static final int hello_world=0x7f050001;
+        public static final int action_settings=0x7f060002;
+        public static final int app_name=0x7f060000;
+        public static final int hello_world=0x7f060001;
     }
     public static final class style {
         /** 
@@ -60,10 +139,10 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f060000;
+        public static final int AppBaseTheme=0x7f070000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f060001;
+        public static final int AppTheme=0x7f070001;
     }
 }

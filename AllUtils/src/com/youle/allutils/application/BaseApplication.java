@@ -6,26 +6,32 @@ import com.youle.allutils.exception.LocalFileHandler;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.widget.BaseExpandableListAdapter;
 
 public abstract class BaseApplication extends Application {
-	public static final String TAG="Application";
+	public static final String TAG = "BaseApplication";
 	public static Context applicationContext;
 	public SharedPreferences sharedPreferences;
-	
+
 	@Override
 	public void onCreate() {
+	
 		super.onCreate();
-		applicationContext=getApplicationContext();
-		if (getDefaultUncaughtExceptionHandler()==null) {
-			Thread.setDefaultUncaughtExceptionHandler(new LocalFileHandler(applicationContext));
-		}
-		else {
+		applicationContext = getApplicationContext();
+		if (getDefaultUncaughtExceptionHandler() == null) {
+
+			Thread.setDefaultUncaughtExceptionHandler(new LocalFileHandler(
+					applicationContext));
+		} else {
+
 			Thread.setDefaultUncaughtExceptionHandler(getDefaultUncaughtExceptionHandler());
 		}
-		//初始化
-		sharedPreferences=getSharedPreferences("local_kv", MODE_PRIVATE);
+		// 初始化
+		sharedPreferences = getSharedPreferences("local_kv", MODE_PRIVATE);
+		
 	}
+
 	public abstract BaseExceptionHandler getDefaultUncaughtExceptionHandler();
 
 }

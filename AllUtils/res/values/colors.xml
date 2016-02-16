@@ -4,4 +4,6 @@
     <color name="selected_color">#FF6000</color>
     <color name="lunbo_selected">#C8E7B496</color>
     <color name="lunbo_default">#00000000</color>
+    <color name="find_car">#F3852C</color>
+     <color name="find_default_car">#ffffff</color>
 </resources>
