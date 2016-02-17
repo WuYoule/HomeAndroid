@@ -383,4 +383,8 @@ public class NewsImportantFragment extends BaseFragment {
 		
 	};
 
+	@Override
+	protected void initParams(View view) {
+	}
+
 }

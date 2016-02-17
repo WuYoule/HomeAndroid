@@ -27,13 +27,17 @@ public abstract class BaseFragment extends Fragment{
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view=inflater.inflate(getLayoutId(), container,false);
+	   View view=inflater.inflate(getLayoutId(), container,false);
 	   ViewUtils.inject(this,view);
 	   initParams();
+	   initParams(view);
 	   return view;
 	}
 
 	protected abstract int getLayoutId();
 	
 	protected abstract void initParams();
+	
+	protected abstract void initParams(View view);
+	
 }

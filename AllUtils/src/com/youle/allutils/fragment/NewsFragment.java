@@ -236,4 +236,8 @@ public class NewsFragment extends BaseFragment {
 
 	}
 
+	@Override
+	protected void initParams(View view) {
+	}
+
 }

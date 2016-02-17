@@ -81,4 +81,8 @@ public class FindFragment extends BaseFragment {
 		}
 		ft.commit();
 	}
+
+	@Override
+	protected void initParams(View view) {
+	}
 }
