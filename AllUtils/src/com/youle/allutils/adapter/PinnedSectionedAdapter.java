@@ -1,5 +1,7 @@
 package com.youle.allutils.adapter;
 
+import java.text.BreakIterator;
+
 import com.youle.allutils.R;
 
 import android.content.Context;
@@ -7,10 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.SectionIndexer;
 import android.widget.TextView;
 import za.co.immedia.pinnedheaderlistview.SectionedBaseAdapter;
 
-public class PinnedSectionedAdapter extends SectionedBaseAdapter {
+public class PinnedSectionedAdapter extends SectionedBaseAdapter implements
+		SectionIndexer {
 
 	@Override
 	public Object getItem(int section, int position) {
@@ -32,17 +36,17 @@ public class PinnedSectionedAdapter extends SectionedBaseAdapter {
 	@Override
 	public int getCountForSection(int section) {
 		switch (section) {
-		case 0:
+		case 0://a
 			return 2;
-		case 1:
-			return 5;
-		case 2:
-			return 10;
-		case 3:
-			return 15;
+		case 1://b
+			return 2;
+		case 2://c
+			return 2;
+		case 3://d
+			return 2;
 
 		default:
-			return 20;
+			return 2;
 
 		}
 
@@ -107,7 +111,7 @@ public class PinnedSectionedAdapter extends SectionedBaseAdapter {
 		case 6:
 			word = "G";
 			break;
-			
+
 		case 7:
 			word = "H";
 			break;
@@ -129,7 +133,7 @@ public class PinnedSectionedAdapter extends SectionedBaseAdapter {
 		case 13:
 			word = "N";
 			break;
-			
+
 		case 14:
 			word = "O";
 			break;
@@ -151,7 +155,7 @@ public class PinnedSectionedAdapter extends SectionedBaseAdapter {
 		case 20:
 			word = "U";
 			break;
-			
+
 		case 21:
 			word = "V";
 			break;
@@ -173,6 +177,109 @@ public class PinnedSectionedAdapter extends SectionedBaseAdapter {
 		}
 		return word;
 
+	}
+
+	@Override
+	public Object[] getSections() {
+		return null;
+	}
+
+	@Override
+	public int getPositionForSection(int sectionIndex) {
+		int p = 0;
+		char[] alphabet = new char[] { '#', 'A', 'B', 'C', 'D', 'E', 'F', 'G',
+				'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S',
+				'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+		switch (sectionIndex) {
+		case '#':
+			p = 0;
+			break;
+		case 'A':
+			p = 1;
+			break;
+		case 'B':
+			p = 2;
+			break;
+		case 'C':
+			p = 3;
+			break;
+		case 'D':
+			p = 4;
+			break;
+		case 'E':
+			p = 5;
+			break;
+		case 'F':
+			p = 6;
+			break;
+		case 'G':
+			p = 7;
+			break;
+		case 'H':
+			p = 8;
+			break;
+		case 'I':
+			p = 9;
+			break;
+		case 'J':
+			p = 10;
+			break;
+		case 'K':
+			p = 11;
+			break;
+		case 'L':
+			p = 12;
+			break;
+		case 'M':
+			p = 13;
+			break;
+		case 'N':
+			p = 14;
+			break;
+
+		case 'O':
+			p = 15;
+			break;
+		case 'P':
+			p = 16;
+			break;
+		case 'Q':
+			p = 17;
+			break;
+		case 'R':
+			p = 18;
+			break;
+		case 'S':
+			p = 19;
+			break;
+		case 'T':
+			p = 20;
+			break;
+
+		case 'U':
+			p = 21;
+			break;
+		case 'V':
+			p = 22;
+			break;
+		case 'W':
+			p = 23;
+			break;
+
+		case 'X':
+			p = 24;
+			break;
+		case 'Y':
+			p = 25;
+			break;
+		case 'Z':
+			p = 26;
+			break;
+
+		default:
+			break;
+		}
+		return p;
 	}
 
 }

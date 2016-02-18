@@ -5,5 +5,8 @@
     <color name="lunbo_selected">#C8E7B496</color>
     <color name="lunbo_default">#00000000</color>
     <color name="find_car">#F3852C</color>
-     <color name="find_default_car">#ffffff</color>
+     <color name="find_default_car">#ffffffff</color>
+     <color name="sidebar_selected">#FC7625</color>
+     <color name="sidebar_touch">#ccB1ADAB</color>
+     <color name="@android:color/transparent"></color>
 </resources>
