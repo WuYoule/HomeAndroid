@@ -4,7 +4,6 @@ import java.text.BreakIterator;
 
 import com.youle.allutils.R;
 
-import android.R.string;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +13,7 @@ import android.widget.SectionIndexer;
 import android.widget.TextView;
 import za.co.immedia.pinnedheaderlistview.SectionedBaseAdapter;
 
-public class PinnedSectionedAdapter extends SectionedBaseAdapter implements
+public class SecondPinnedSectionedAdapter extends SectionedBaseAdapter implements
 		SectionIndexer {
 
 	@Override
@@ -37,13 +36,13 @@ public class PinnedSectionedAdapter extends SectionedBaseAdapter implements
 	@Override
 	public int getCountForSection(int section) {
 		switch (section) {
-		case 0:// a
+		case 0://a
 			return 2;
-		case 1:// b
+		case 1://b
 			return 2;
-		case 2:// c
+		case 2://c
 			return 2;
-		case 3:// d
+		case 3://d
 			return 2;
 
 		default:
@@ -64,7 +63,8 @@ public class PinnedSectionedAdapter extends SectionedBaseAdapter implements
 		} else {
 			layout = (LinearLayout) convertView;
 		}
-		((TextView) layout.findViewById(R.id.textItem)).setText(getCarName(section)+" "+position);
+		((TextView) layout.findViewById(R.id.textItem)).setText("Section "
+				+ section + " Item " + position);
 		return layout;
 	}
 
@@ -179,30 +179,6 @@ public class PinnedSectionedAdapter extends SectionedBaseAdapter implements
 
 	}
 
-	public String getCarName(int code) {
-		String carname="";
-		switch (code) {
-		case 0:
-			carname="奥迪";
-			break;
-		case 1:
-			carname="宝马";
-			break;
-		case 2:
-			carname="长安";
-			break;
-		case 3:
-			carname = "大众";
-			break;
-		
-
-		default:
-			carname="其他";
-			break;
-		}
-      return carname;
-	}
-
 	@Override
 	public Object[] getSections() {
 		return null;
@@ -211,6 +187,7 @@ public class PinnedSectionedAdapter extends SectionedBaseAdapter implements
 	@Override
 	public int getPositionForSection(int sectionIndex) {
 		int p = 0;
+		
 		switch (sectionIndex) {
 		case '#':
 			p = 0;

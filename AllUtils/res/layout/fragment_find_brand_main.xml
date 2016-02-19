@@ -1,38 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-     >
-    
+    android:layout_height="match_parent" >
+
     <za.co.immedia.pinnedheaderlistview.PinnedHeaderListView
-            android:scrollbars="none"
-            android:id="@+id/pinnedListView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/white">
-            
+        android:id="@+id/pinnedListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:scrollbars="none" >
     </za.co.immedia.pinnedheaderlistview.PinnedHeaderListView>
 
-    
-    <com.youle.allutils.view.SideBar 
+    <com.youle.allutils.view.SideBar
         android:id="@+id/find_brand_sb"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
-       android:background="@android:color/transparent"
-       android:layout_alignParentRight="true"
-        />
-    
-    <TextView 
+        android:layout_alignParentRight="true"
+        android:background="@android:color/transparent" />
+    <TextView
         android:id="@+id/xianshi_tv"
-        android:text="none"
-        android:textSize="20sp"
-        android:textColor="#FFF"
-        android:gravity="center"
         android:layout_width="80dp"
         android:layout_height="80dp"
-     android:visibility="gone"
-       android:layout_centerInParent="true"
+        android:layout_centerInParent="true"
         android:background="@color/selected_color"
-        />
+        android:gravity="center"
+        android:text="none"
+        android:textColor="#FFF"
+        android:textSize="20sp"
+        android:visibility="gone" />
     
+    <LinearLayout 
+        android:id="@+id/find_brand_llyt_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="80dp"
+        android:orientation="horizontal"
+       android:background="#ffffff"
+       android:visibility="gone"
+        >
+        <TextView 
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+             android:background="@drawable/left_shadow"
+            />
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            >
+            <za.co.immedia.pinnedheaderlistview.PinnedHeaderListView
+                android:id="@+id/find_cover_lv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                
+                ></za.co.immedia.pinnedheaderlistview.PinnedHeaderListView>
+        </LinearLayout>
+    </LinearLayout>
+    
+    
+
 </RelativeLayout>

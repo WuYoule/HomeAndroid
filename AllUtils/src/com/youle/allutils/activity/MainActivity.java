@@ -19,6 +19,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -239,5 +240,26 @@ public class MainActivity extends BaseActivity {
 		if (isRecycle) {
 			myTabChange(chooseIndex);
 		}
+	}
+	
+	private FragmentOnTouchListener fragmentOnTouchListener;
+	@Override
+	public boolean dispatchTouchEvent(MotionEvent ev) {
+		if (fragmentOnTouchListener!=null) {
+			fragmentOnTouchListener.onTouch(ev);
+		}
+		return super.dispatchTouchEvent(ev);
+	}
+	public interface FragmentOnTouchListener{
+		public boolean onTouch(MotionEvent ev);	
+		
+	}
+	public void registerFragmentOnTouchListener(FragmentOnTouchListener fragmentOnTouchListener) {
+		this.fragmentOnTouchListener=fragmentOnTouchListener;
+		
+	}
+	public void unregisterFragmentOnTouchListener(FragmentOnTouchListener fragmentOnTouchListener) {
+		this.fragmentOnTouchListener=null;
+		
 	}
 }

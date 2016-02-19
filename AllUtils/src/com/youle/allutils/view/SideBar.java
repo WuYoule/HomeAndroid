@@ -25,14 +25,12 @@ import android.widget.TextView;
 public class SideBar extends View {
 
 	// 字母表
-	private char[] alphabet = new char[] {
-			 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-	        'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+	private char[] alphabet;
 	// 列表
 	private PinnedHeaderListView listView;
 	private SectionIndexer sectionIndexer;
 	
-	private PinnedSectionedAdapter adapter;
+	
 	
 	private ListAdapter lAdapter;
 	// 提示对话框
@@ -62,25 +60,21 @@ public class SideBar extends View {
 	}
 	public void setListView(PinnedHeaderListView listView){
 		this.listView=listView;
-		
-		 
 		 
 //	   sectionIndexer=(SectionIndexer) listView.getAdapter();
 	   
-		
-	
 	}
-	public void getPinnedSectionedAdapter(PinnedSectionedAdapter adapter){
-		this.adapter=adapter;
-		
-	}
-	public void setTextView(TextView dialogText){
+		public void setTextView(TextView dialogText){
 		this.dialogText=dialogText;
 	}
 	
-	public interface getPosition{
-		
-	}
+//	private onTouchingLetterListener onLetterListener;
+//	public interface onTouchingLetterListener{
+//		public void onTouchingLetter(String str);
+//	}
+//	public void setOnTouchingLetterListener(onTouchingLetterListener onLetterListener){
+//		this.onLetterListener=onLetterListener;
+//	}
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		
@@ -88,7 +82,6 @@ public class SideBar extends View {
 		int i=(int) event.getY();
 		//计算当前触摸的位置属于哪个字母
 		 idx=i/(getMeasuredHeight()/alphabet.length);
-//		Log.i("+++++++", alphabet[idx-1]+"");
 		
 		if (idx>=alphabet.length) {
 			idx=alphabet.length-1;
