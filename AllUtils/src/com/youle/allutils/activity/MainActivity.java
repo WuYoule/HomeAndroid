@@ -12,6 +12,8 @@ import com.youle.allutils.fragment.PriceFragment;
 import com.youle.allutils.view.ToastMaker;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -47,20 +49,20 @@ public class MainActivity extends BaseActivity {
 	TextView car_tv_find;
 
 	// 降价模块
-	@ViewInject(R.id.car_llyt_price)
-	LinearLayout car_llyt_price;
-	@ViewInject(R.id.car_iv_price)
-	ImageView car_iv_price;
-	@ViewInject(R.id.car_tv_price)
-	TextView car_tv_price;
+//	@ViewInject(R.id.car_llyt_price)
+//	LinearLayout car_llyt_price;
+//	@ViewInject(R.id.car_iv_price)
+//	ImageView car_iv_price;
+//	@ViewInject(R.id.car_tv_price)
+//	TextView car_tv_price;
 
 	// 问答模块
-	@ViewInject(R.id.car_llyt_ask)
-	LinearLayout car_llyt_ask;
-	@ViewInject(R.id.car_iv_ask)
-	ImageView car_iv_ask;
-	@ViewInject(R.id.car_tv_ask)
-	TextView car_tv_ask;
+//	@ViewInject(R.id.car_llyt_ask)
+//	LinearLayout car_llyt_ask;
+//	@ViewInject(R.id.car_iv_ask)
+//	ImageView car_iv_ask;
+//	@ViewInject(R.id.car_tv_ask)
+//	TextView car_tv_ask;
 
 	// 我的模块
 	@ViewInject(R.id.car_llyt_my)
@@ -103,8 +105,8 @@ public class MainActivity extends BaseActivity {
 	}
 
 	// 控件点击事件
-	@OnClick({ R.id.car_llyt_news, R.id.car_llyt_find, R.id.car_llyt_ask,
-			R.id.car_llyt_price, R.id.car_llyt_my })
+	@OnClick({ R.id.car_llyt_news, R.id.car_llyt_find
+			, R.id.car_llyt_my })
 	public void myViewOnClick(View view) {
 		ft = getSupportFragmentManager().beginTransaction();
 		switch (view.getId()) {
@@ -128,26 +130,26 @@ public class MainActivity extends BaseActivity {
 			}
 
 			break;
-		case R.id.car_llyt_price:
-			if (chooseIndex != 2) {
-				chooseIndex = 2;
-				myTabChange(chooseIndex);
-				ft.replace(R.id.car_flyt_content,
-						PriceFragment.instantiate(MainActivity.this,
-								PriceFragment.class.getName(), null), "price");
-			}
-
-			break;
-		case R.id.car_llyt_ask:
-			if (chooseIndex != 3) {
-				chooseIndex = 3;
-				myTabChange(chooseIndex);
-				ft.replace(R.id.car_flyt_content, AskFragment.instantiate(
-						MainActivity.this, AskFragment.class.getName(), null),
-						"ask");
-			}
-
-			break;
+//		case R.id.car_llyt_price:
+//			if (chooseIndex != 2) {
+//				chooseIndex = 2;
+//				myTabChange(chooseIndex);
+//				ft.replace(R.id.car_flyt_content,
+//						PriceFragment.instantiate(MainActivity.this,
+//								PriceFragment.class.getName(), null), "price");
+//			}
+//
+//			break;
+//		case R.id.car_llyt_ask:
+//			if (chooseIndex != 3) {
+//				chooseIndex = 3;
+//				myTabChange(chooseIndex);
+//				ft.replace(R.id.car_flyt_content, AskFragment.instantiate(
+//						MainActivity.this, AskFragment.class.getName(), null),
+//						"ask");
+//			}
+//
+//			break;
 		case R.id.car_llyt_my:
 			if (chooseIndex != 4) {
 				chooseIndex = 4;
@@ -167,39 +169,48 @@ public class MainActivity extends BaseActivity {
 	private void myTabChange(int chooseIndex) {
 		switch (chooseIndex) {
 		case 0:
-			car_tv_news.setTextColor(Color.BLUE);
-			car_tv_ask.setTextColor(Color.BLACK);
-			car_tv_my.setTextColor(Color.BLACK);
-			car_tv_price.setTextColor(Color.BLACK);
-			car_tv_find.setTextColor(Color.BLACK);
+			car_tv_news.setTextColor(getResources().getColor(R.color.tab_select_txt));
+			car_iv_news.setImageResource(R.drawable.zixun_select);
+			//car_tv_ask.setTextColor(Color.BLACK);
+			car_tv_my.setTextColor(getResources().getColor(R.color.tab_default_txt));
+			car_iv_my.setImageResource(R.drawable.me);
+			//car_tv_price.setTextColor(Color.BLACK);
+			car_tv_find.setTextColor(getResources().getColor(R.color.tab_default_txt));
+			car_iv_find.setImageResource(R.drawable.zhaoche);
 			break;
 		case 1:
-			car_tv_news.setTextColor(Color.BLACK);
-			car_tv_ask.setTextColor(Color.BLACK);
-			car_tv_my.setTextColor(Color.BLACK);
-			car_tv_price.setTextColor(Color.BLACK);
-			car_tv_find.setTextColor(Color.BLUE);
+			car_tv_news.setTextColor(getResources().getColor(R.color.tab_default_txt));
+			car_iv_news.setImageResource(R.drawable.zixun);
+			//car_tv_ask.setTextColor(Color.BLACK);
+			car_tv_my.setTextColor(getResources().getColor(R.color.tab_default_txt));
+			car_iv_my.setImageResource(R.drawable.me);
+			//car_tv_price.setTextColor(Color.BLACK);
+			car_tv_find.setTextColor(getResources().getColor(R.color.tab_select_txt));
+			car_iv_find.setImageResource(R.drawable.zhaoche_select);
 			break;
 		case 2:
 			car_tv_news.setTextColor(Color.BLACK);
-			car_tv_ask.setTextColor(Color.BLACK);
+		//	car_tv_ask.setTextColor(Color.BLACK);
 			car_tv_my.setTextColor(Color.BLACK);
-			car_tv_price.setTextColor(Color.BLUE);
+			//car_tv_price.setTextColor(Color.BLUE);
 			car_tv_find.setTextColor(Color.BLACK);
 			break;
 		case 3:
 			car_tv_news.setTextColor(Color.BLACK);
-			car_tv_ask.setTextColor(Color.BLUE);
+			//car_tv_ask.setTextColor(Color.BLUE);
 			car_tv_my.setTextColor(Color.BLACK);
-			car_tv_price.setTextColor(Color.BLACK);
+			//car_tv_price.setTextColor(Color.BLACK);
 			car_tv_find.setTextColor(Color.BLACK);
 			break;
 		case 4:
-			car_tv_news.setTextColor(Color.BLACK);
-			car_tv_ask.setTextColor(Color.BLACK);
-			car_tv_my.setTextColor(Color.BLUE);
-			car_tv_price.setTextColor(Color.BLACK);
-			car_tv_find.setTextColor(Color.BLACK);
+			car_tv_news.setTextColor(getResources().getColor(R.color.tab_default_txt));
+			car_iv_news.setImageResource(R.drawable.zhaoche);
+			//car_tv_ask.setTextColor(Color.BLACK);
+			car_tv_my.setTextColor(getResources().getColor(R.color.tab_select_txt));
+			car_iv_my.setImageResource(R.drawable.me_select);
+			//car_tv_price.setTextColor(Color.BLACK);
+			car_tv_find.setTextColor(getResources().getColor(R.color.tab_default_txt));
+			car_iv_find.setImageResource(R.drawable.zhaoche);
 			break;
 
 		default:
@@ -241,6 +252,18 @@ public class MainActivity extends BaseActivity {
 			myTabChange(chooseIndex);
 		}
 	}
+	
+	public static void startActivity(Context context) {
+		Intent intent = new Intent(context, MainActivity.class);
+		
+		context.startActivity(intent);
+
+	}
+	
+	
+	
+	
+	
 	
 	private FragmentOnTouchListener fragmentOnTouchListener;
 	@Override

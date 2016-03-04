@@ -48,13 +48,13 @@ public class FindFragment extends BaseFragment {
 		switch (view.getId()) {
 		case R.id.fragment_find_tv_brand:
 			fragment_find_tv_brand.setBackgroundColor(getResources().getColor(
-					R.color.find_car));
+					R.color.tab_select_txt));
 			fragment_find_tv_brand.setTextColor(getResources().getColor(
 					R.color.find_default_car));
 			fragment_find_tv_filter.setBackgroundColor(getResources().getColor(
 					R.color.find_default_car));
 			fragment_find_tv_filter.setTextColor(getResources().getColor(
-					R.color.find_car));
+					R.color.tab_select_txt));
 
 			if (findbrandFragment == null) {
 				findbrandFragment = new FindBrandFragment();
@@ -66,9 +66,9 @@ public class FindFragment extends BaseFragment {
 			fragment_find_tv_brand.setBackgroundColor(getResources().getColor(
 					R.color.find_default_car));
 			fragment_find_tv_brand.setTextColor(getResources().getColor(
-					R.color.find_car));
+					R.color.tab_select_txt));
 			fragment_find_tv_filter.setBackgroundColor(getResources().getColor(
-					R.color.find_car));
+					R.color.tab_select_txt));
 			fragment_find_tv_filter.setTextColor(getResources().getColor(
 					R.color.find_default_car));
 			if (findfilterFragment == null) {

@@ -9,20 +9,87 @@ package com.youle.allutils;
 
 public final class R {
     public static final class anim {
-        public static final int in_from_right=0x7f040000;
-        public static final int out_from_right=0x7f040001;
+        public static final int alpha_loading=0x7f040000;
+        public static final int in_from_right=0x7f040001;
+        public static final int out_from_right=0x7f040002;
     }
     public static final class attr {
+        /** <p>May be an integer value, such as "<code>100</code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int ci_background=0x7f010002;
+        /** <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>left</code></td><td>0</td><td></td></tr>
+<tr><td><code>center</code></td><td>1</td><td></td></tr>
+<tr><td><code>right</code></td><td>2</td><td></td></tr>
+</table>
+         */
+        public static final int ci_gravity=0x7f010004;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int ci_margin=0x7f010001;
+        /** <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>inside</code></td><td>0</td><td></td></tr>
+<tr><td><code>outside</code></td><td>1</td><td></td></tr>
+<tr><td><code>solo</code></td><td>2</td><td></td></tr>
+</table>
+         */
+        public static final int ci_mode=0x7f010005;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int ci_radius=0x7f010000;
+        /** <p>May be an integer value, such as "<code>100</code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int ci_selected_background=0x7f010003;
     }
     public static final class color {
-        public static final int defalut_color=0x7f050000;
-        public static final int find_car=0x7f050004;
-        public static final int find_default_car=0x7f050005;
-        public static final int lunbo_default=0x7f050003;
-        public static final int lunbo_selected=0x7f050002;
-        public static final int selected_color=0x7f050001;
-        public static final int sidebar_selected=0x7f050006;
-        public static final int sidebar_touch=0x7f050007;
+        public static final int defalut_color=0x7f060000;
+        public static final int find_car=0x7f060004;
+        public static final int find_default_car=0x7f060005;
+        public static final int lunbo_default=0x7f060003;
+        public static final int lunbo_selected=0x7f060002;
+        public static final int selected_color=0x7f060001;
+        public static final int sidebar_selected=0x7f060006;
+        public static final int sidebar_touch=0x7f060007;
+        public static final int tab_default_txt=0x7f060009;
+        public static final int tab_select_txt=0x7f060008;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -32,106 +99,183 @@ public final class R {
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
     
          */
-        public static final int activity_horizontal_margin=0x7f060000;
-        public static final int activity_vertical_margin=0x7f060001;
+        public static final int activity_horizontal_margin=0x7f070000;
+        public static final int activity_vertical_margin=0x7f070001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
-        public static final int left_shadow=0x7f020001;
-        public static final int logo=0x7f020002;
-        public static final int logo0=0x7f020003;
-        public static final int tab_selector=0x7f020004;
+        public static final int anim1=0x7f020000;
+        public static final int anim2=0x7f020001;
+        public static final int anim3=0x7f020002;
+        public static final int anim4=0x7f020003;
+        public static final int applogo=0x7f020004;
+        public static final int back=0x7f020005;
+        public static final int button_bg=0x7f020006;
+        public static final int button_selected_bg=0x7f020007;
+        public static final int ic_launcher=0x7f020008;
+        public static final int img1=0x7f020009;
+        public static final int img2=0x7f02000a;
+        public static final int left_shadow=0x7f02000b;
+        public static final int loading=0x7f02000c;
+        public static final int logo=0x7f02000d;
+        public static final int logo0=0x7f02000e;
+        public static final int me=0x7f02000f;
+        public static final int me_select=0x7f020010;
+        public static final int new_iv1=0x7f020011;
+        public static final int new_iv2=0x7f020012;
+        public static final int news_iv10=0x7f020013;
+        public static final int news_iv11=0x7f020014;
+        public static final int news_iv12=0x7f020015;
+        public static final int news_iv13=0x7f020016;
+        public static final int news_iv14=0x7f020017;
+        public static final int news_iv15=0x7f020018;
+        public static final int news_iv16=0x7f020019;
+        public static final int news_iv17=0x7f02001a;
+        public static final int news_iv3=0x7f02001b;
+        public static final int news_iv4=0x7f02001c;
+        public static final int news_iv5=0x7f02001d;
+        public static final int news_iv6=0x7f02001e;
+        public static final int news_iv7=0x7f02001f;
+        public static final int news_iv8=0x7f020020;
+        public static final int news_iv9=0x7f020021;
+        public static final int select=0x7f020022;
+        public static final int tab_selector=0x7f020023;
+        public static final int zhaoche=0x7f020024;
+        public static final int zhaoche_select=0x7f020025;
+        public static final int zixun=0x7f020026;
+        public static final int zixun_select=0x7f020027;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0035;
-        public static final int car_flyt_content=0x7f0a0000;
-        public static final int car_iv_ask=0x7f0a000b;
-        public static final int car_iv_find=0x7f0a0005;
-        public static final int car_iv_my=0x7f0a000e;
-        public static final int car_iv_news=0x7f0a0002;
-        public static final int car_iv_price=0x7f0a0008;
-        public static final int car_llyt_ask=0x7f0a000a;
-        public static final int car_llyt_find=0x7f0a0004;
-        public static final int car_llyt_my=0x7f0a000d;
-        public static final int car_llyt_news=0x7f0a0001;
-        public static final int car_llyt_price=0x7f0a0007;
-        public static final int car_picture_iv_back=0x7f0a0032;
-        public static final int car_picture_tv_index=0x7f0a0033;
-        public static final int car_picture_vp=0x7f0a0031;
-        public static final int car_tv_ask=0x7f0a000c;
-        public static final int car_tv_find=0x7f0a0006;
-        public static final int car_tv_my=0x7f0a000f;
-        public static final int car_tv_news=0x7f0a0003;
-        public static final int car_tv_price=0x7f0a0009;
-        public static final int find_brand_llyt_content=0x7f0a0014;
-        public static final int find_brand_sb=0x7f0a0012;
-        public static final int find_cover_lv=0x7f0a0015;
-        public static final int fragment_find_flyt_content=0x7f0a0019;
-        public static final int fragment_find_llyt_switch=0x7f0a0016;
-        public static final int fragment_find_tv_brand=0x7f0a0017;
-        public static final int fragment_find_tv_filter=0x7f0a0018;
-        public static final int item_iv_img=0x7f0a002b;
-        public static final int item_tv_count=0x7f0a002e;
-        public static final int item_tv_time=0x7f0a002d;
-        public static final int item_tv_title=0x7f0a002c;
-        public static final int news_head_tv=0x7f0a002a;
-        public static final int news_head_tv1=0x7f0a0025;
-        public static final int news_head_tv2=0x7f0a0026;
-        public static final int news_head_tv3=0x7f0a0027;
-        public static final int news_head_tv4=0x7f0a0028;
-        public static final int news_head_tv5=0x7f0a0029;
-        public static final int news_head_vp=0x7f0a0024;
-        public static final int news_important_lv=0x7f0a001a;
-        public static final int news_tv_buy=0x7f0a001d;
-        public static final int news_tv_important=0x7f0a001b;
-        public static final int news_tv_market=0x7f0a0020;
-        public static final int news_tv_newcar=0x7f0a001c;
-        public static final int news_tv_picture=0x7f0a001f;
-        public static final int news_tv_try=0x7f0a001e;
-        public static final int news_vp=0x7f0a0021;
-        public static final int picture_iv_item=0x7f0a002f;
-        public static final int picture_tv_title=0x7f0a0030;
-        public static final int pinnedListView=0x7f0a0011;
-        public static final int textItem=0x7f0a0022;
-        public static final int textView1=0x7f0a0010;
-        public static final int toast_content=0x7f0a0034;
-        public static final int viewpager_head_item_img=0x7f0a0023;
-        public static final int xianshi_tv=0x7f0a0013;
+        public static final int action_settings=0x7f050054;
+        public static final int car_flyt_content=0x7f050006;
+        public static final int car_iv_find=0x7f05000b;
+        public static final int car_iv_my=0x7f05000e;
+        public static final int car_iv_news=0x7f050008;
+        public static final int car_llyt_find=0x7f05000a;
+        public static final int car_llyt_my=0x7f05000d;
+        public static final int car_llyt_news=0x7f050007;
+        public static final int car_picture_iv_back=0x7f050051;
+        public static final int car_picture_tv_index=0x7f050052;
+        public static final int car_picture_vp=0x7f050050;
+        public static final int car_tv_find=0x7f05000c;
+        public static final int car_tv_my=0x7f05000f;
+        public static final int car_tv_news=0x7f050009;
+        public static final int center=0x7f050001;
+        public static final int find_brand_llyt_content=0x7f050014;
+        public static final int find_brand_sb=0x7f050012;
+        public static final int find_cover_lv=0x7f050015;
+        public static final int find_filter_hscv_choosed=0x7f05001e;
+        public static final int find_filter_llyt_choosed=0x7f05001f;
+        public static final int find_filter_tv_bian=0x7f050023;
+        public static final int find_filter_tv_level=0x7f050021;
+        public static final int find_filter_tv_pai=0x7f050022;
+        public static final int find_filter_tv_price=0x7f050020;
+        public static final int fragment_find_bian_btn_bian1=0x7f050018;
+        public static final int fragment_find_bian_btn_bian2=0x7f050019;
+        public static final int fragment_find_bian_btn_bian3=0x7f05001a;
+        public static final int fragment_find_filter_add_llyt=0x7f050016;
+        public static final int fragment_find_filter_add_txt=0x7f050017;
+        public static final int fragment_find_filter_btn_result=0x7f050026;
+        public static final int fragment_find_filter_iv_cursor=0x7f050024;
+        public static final int fragment_find_filter_vp=0x7f050025;
+        public static final int fragment_find_flyt_content=0x7f050030;
+        public static final int fragment_find_level_btn_level1=0x7f05001b;
+        public static final int fragment_find_level_btn_level2=0x7f05001c;
+        public static final int fragment_find_level_btn_level3=0x7f05001d;
+        public static final int fragment_find_llyt_switch=0x7f05002d;
+        public static final int fragment_find_pai_btn_pai1=0x7f050027;
+        public static final int fragment_find_pai_btn_pai2=0x7f050028;
+        public static final int fragment_find_pai_btn_pai3=0x7f050029;
+        public static final int fragment_find_price_btn_price1=0x7f05002a;
+        public static final int fragment_find_price_btn_price2=0x7f05002b;
+        public static final int fragment_find_price_btn_price3=0x7f05002c;
+        public static final int fragment_find_tv_brand=0x7f05002e;
+        public static final int fragment_find_tv_filter=0x7f05002f;
+        public static final int guide_btn_start=0x7f05003d;
+        public static final int guide_iv1=0x7f050039;
+        public static final int guide_iv2=0x7f05003a;
+        public static final int guide_iv3=0x7f05003b;
+        public static final int guide_iv4=0x7f05003c;
+        public static final int guide_vp=0x7f05003e;
+        public static final int guide_vp_indicator=0x7f05003f;
+        public static final int inside=0x7f050003;
+        public static final int item_iv_img=0x7f05004a;
+        public static final int item_tv_count=0x7f05004d;
+        public static final int item_tv_time=0x7f05004c;
+        public static final int item_tv_title=0x7f05004b;
+        public static final int left=0x7f050000;
+        public static final int loading_iv_ad=0x7f050041;
+        public static final int news_head_tv=0x7f050049;
+        public static final int news_head_tv1=0x7f050044;
+        public static final int news_head_tv2=0x7f050045;
+        public static final int news_head_tv3=0x7f050046;
+        public static final int news_head_tv4=0x7f050047;
+        public static final int news_head_tv5=0x7f050048;
+        public static final int news_head_vp=0x7f050043;
+        public static final int news_important_lv=0x7f050031;
+        public static final int news_tv_buy=0x7f050034;
+        public static final int news_tv_important=0x7f050032;
+        public static final int news_tv_market=0x7f050037;
+        public static final int news_tv_newcar=0x7f050033;
+        public static final int news_tv_picture=0x7f050036;
+        public static final int news_tv_try=0x7f050035;
+        public static final int news_vp=0x7f050038;
+        public static final int outside=0x7f050004;
+        public static final int picture_iv_item=0x7f05004e;
+        public static final int picture_tv_title=0x7f05004f;
+        public static final int pinnedListView=0x7f050011;
+        public static final int right=0x7f050002;
+        public static final int solo=0x7f050005;
+        public static final int textItem=0x7f050040;
+        public static final int textView1=0x7f050010;
+        public static final int toast_content=0x7f050053;
+        public static final int viewpager_head_item_img=0x7f050042;
+        public static final int xianshi_tv=0x7f050013;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int fragment_ask_main=0x7f030001;
         public static final int fragment_find_brand_ic_index=0x7f030002;
         public static final int fragment_find_brand_main=0x7f030003;
-        public static final int fragment_find_filter_main=0x7f030004;
-        public static final int fragment_find_main=0x7f030005;
-        public static final int fragment_my_main=0x7f030006;
-        public static final int fragment_news_buy=0x7f030007;
-        public static final int fragment_news_important=0x7f030008;
-        public static final int fragment_news_main=0x7f030009;
-        public static final int fragment_news_market=0x7f03000a;
-        public static final int fragment_news_newcar=0x7f03000b;
-        public static final int fragment_news_picture=0x7f03000c;
-        public static final int fragment_news_try=0x7f03000d;
-        public static final int fragment_price_main=0x7f03000e;
-        public static final int header_item=0x7f03000f;
-        public static final int index=0x7f030010;
-        public static final int list_item=0x7f030011;
-        public static final int listview_loading_view=0x7f030012;
-        public static final int news_head_item=0x7f030013;
-        public static final int news_head_view=0x7f030014;
-        public static final int news_item=0x7f030015;
-        public static final int news_picture_item=0x7f030016;
-        public static final int news_picture_main=0x7f030017;
-        public static final int toast_common=0x7f030018;
+        public static final int fragment_find_filter_add_main=0x7f030004;
+        public static final int fragment_find_filter_bian=0x7f030005;
+        public static final int fragment_find_filter_level=0x7f030006;
+        public static final int fragment_find_filter_main=0x7f030007;
+        public static final int fragment_find_filter_pai=0x7f030008;
+        public static final int fragment_find_filter_price=0x7f030009;
+        public static final int fragment_find_main=0x7f03000a;
+        public static final int fragment_my_main=0x7f03000b;
+        public static final int fragment_news_buy=0x7f03000c;
+        public static final int fragment_news_important=0x7f03000d;
+        public static final int fragment_news_main=0x7f03000e;
+        public static final int fragment_news_market=0x7f03000f;
+        public static final int fragment_news_newcar=0x7f030010;
+        public static final int fragment_news_picture=0x7f030011;
+        public static final int fragment_news_try=0x7f030012;
+        public static final int fragment_price_main=0x7f030013;
+        public static final int guide_item1=0x7f030014;
+        public static final int guide_item2=0x7f030015;
+        public static final int guide_item3=0x7f030016;
+        public static final int guide_item4=0x7f030017;
+        public static final int guide_main=0x7f030018;
+        public static final int header_item=0x7f030019;
+        public static final int index=0x7f03001a;
+        public static final int list_item=0x7f03001b;
+        public static final int listview_loading_view=0x7f03001c;
+        public static final int loading_main=0x7f03001d;
+        public static final int news_head_item=0x7f03001e;
+        public static final int news_head_view=0x7f03001f;
+        public static final int news_item=0x7f030020;
+        public static final int news_picture_item=0x7f030021;
+        public static final int news_picture_main=0x7f030022;
+        public static final int toast_common=0x7f030023;
     }
     public static final class menu {
-        public static final int main=0x7f090000;
+        public static final int main=0x7f0a0000;
     }
     public static final class string {
-        public static final int action_settings=0x7f070002;
-        public static final int app_name=0x7f070000;
-        public static final int hello_world=0x7f070001;
+        public static final int action_settings=0x7f080002;
+        public static final int app_name=0x7f080000;
+        public static final int hello_world=0x7f080001;
     }
     public static final class style {
         /** 
@@ -155,10 +299,136 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f080000;
+        public static final int AppBaseTheme=0x7f090000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f080001;
+        public static final int AppTheme=0x7f090001;
     }
+    public static final class styleable {
+        /** Attributes that can be used with a CircleIndicator.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #CircleIndicator_ci_background com.youle.allutils:ci_background}</code></td><td></td></tr>
+           <tr><td><code>{@link #CircleIndicator_ci_gravity com.youle.allutils:ci_gravity}</code></td><td></td></tr>
+           <tr><td><code>{@link #CircleIndicator_ci_margin com.youle.allutils:ci_margin}</code></td><td></td></tr>
+           <tr><td><code>{@link #CircleIndicator_ci_mode com.youle.allutils:ci_mode}</code></td><td></td></tr>
+           <tr><td><code>{@link #CircleIndicator_ci_radius com.youle.allutils:ci_radius}</code></td><td></td></tr>
+           <tr><td><code>{@link #CircleIndicator_ci_selected_background com.youle.allutils:ci_selected_background}</code></td><td></td></tr>
+           </table>
+           @see #CircleIndicator_ci_background
+           @see #CircleIndicator_ci_gravity
+           @see #CircleIndicator_ci_margin
+           @see #CircleIndicator_ci_mode
+           @see #CircleIndicator_ci_radius
+           @see #CircleIndicator_ci_selected_background
+         */
+        public static final int[] CircleIndicator = {
+            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003,
+            0x7f010004, 0x7f010005
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.youle.allutils.R.attr#ci_background}
+          attribute's value can be found in the {@link #CircleIndicator} array.
+
+
+          <p>May be an integer value, such as "<code>100</code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.youle.allutils:ci_background
+        */
+        public static final int CircleIndicator_ci_background = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.youle.allutils.R.attr#ci_gravity}
+          attribute's value can be found in the {@link #CircleIndicator} array.
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>left</code></td><td>0</td><td></td></tr>
+<tr><td><code>center</code></td><td>1</td><td></td></tr>
+<tr><td><code>right</code></td><td>2</td><td></td></tr>
+</table>
+          @attr name com.youle.allutils:ci_gravity
+        */
+        public static final int CircleIndicator_ci_gravity = 4;
+        /**
+          <p>This symbol is the offset where the {@link com.youle.allutils.R.attr#ci_margin}
+          attribute's value can be found in the {@link #CircleIndicator} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.youle.allutils:ci_margin
+        */
+        public static final int CircleIndicator_ci_margin = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.youle.allutils.R.attr#ci_mode}
+          attribute's value can be found in the {@link #CircleIndicator} array.
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>inside</code></td><td>0</td><td></td></tr>
+<tr><td><code>outside</code></td><td>1</td><td></td></tr>
+<tr><td><code>solo</code></td><td>2</td><td></td></tr>
+</table>
+          @attr name com.youle.allutils:ci_mode
+        */
+        public static final int CircleIndicator_ci_mode = 5;
+        /**
+          <p>This symbol is the offset where the {@link com.youle.allutils.R.attr#ci_radius}
+          attribute's value can be found in the {@link #CircleIndicator} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.youle.allutils:ci_radius
+        */
+        public static final int CircleIndicator_ci_radius = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.youle.allutils.R.attr#ci_selected_background}
+          attribute's value can be found in the {@link #CircleIndicator} array.
+
+
+          <p>May be an integer value, such as "<code>100</code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.youle.allutils:ci_selected_background
+        */
+        public static final int CircleIndicator_ci_selected_background = 3;
+    };
 }

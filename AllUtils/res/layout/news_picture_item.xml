@@ -7,7 +7,7 @@
      >
     
     <com.youle.allutils.view.photoview.PhotoView
-        android:src="@drawable/logo0"
+        
         
         android:id="@+id/picture_iv_item"
         android:layout_width="match_parent"

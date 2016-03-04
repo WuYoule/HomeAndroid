@@ -56,8 +56,16 @@ public class NewsHeadAdapter  extends PagerAdapter{
 			View layout=layoutInflater.inflate(R.layout.news_head_item, null);
 			ImageView viewpager_item_img=(ImageView) layout.findViewById(R.id.viewpager_head_item_img);
 			// 使用picasso 避免图片出现oom以及图片错位
-			Picasso.with(context).load(datas.get(position%datas.size()).cover_image)
-								.placeholder(R.drawable.ic_launcher).into(viewpager_item_img);
+			if (datas.get(position%datas.size()).id==0) {
+				Picasso.with(context).load(datas.get(position%datas.size()).cover_image)
+				.placeholder(R.drawable.img1).into(viewpager_item_img);
+
+			}
+			if (datas.get(position%datas.size()).id==1) {
+				Picasso.with(context).load(datas.get(position%datas.size()).cover_image)
+				.placeholder(R.drawable.img2).into(viewpager_item_img);
+
+			}
 			
 			viewpager_item_img.setOnClickListener(new OnClickListener() {
 				

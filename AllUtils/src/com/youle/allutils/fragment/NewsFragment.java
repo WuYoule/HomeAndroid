@@ -135,7 +135,7 @@ public class NewsFragment extends BaseFragment {
 		// ÒªÎÅ
 		case 0:
 			new_tv_important.setTextColor(getResources().getColor(
-					R.color.selected_color));
+					R.color.tab_select_txt));
 			new_tv_buy.setTextColor(getResources().getColor(R.color.defalut_color));
 			new_tv_try.setTextColor(getResources().getColor(R.color.defalut_color));
 			new_tv_market.setTextColor(getResources().getColor(
@@ -156,13 +156,13 @@ public class NewsFragment extends BaseFragment {
 			new_tv_picture.setTextColor(getResources().getColor(
 					R.color.defalut_color));
 			new_tv_newcar.setTextColor(getResources().getColor(
-					R.color.selected_color));
+					R.color.tab_select_txt));
 			break;
 		// µ¼¹º
 		case 2:
 			new_tv_important.setTextColor(getResources().getColor(
 					R.color.defalut_color));
-			new_tv_buy.setTextColor(getResources().getColor(R.color.selected_color));
+			new_tv_buy.setTextColor(getResources().getColor(R.color.tab_select_txt));
 			new_tv_try.setTextColor(getResources().getColor(R.color.defalut_color));
 			new_tv_market.setTextColor(getResources().getColor(
 					R.color.defalut_color));
@@ -176,7 +176,7 @@ public class NewsFragment extends BaseFragment {
 			new_tv_important.setTextColor(getResources().getColor(
 					R.color.defalut_color));
 			new_tv_buy.setTextColor(getResources().getColor(R.color.defalut_color));
-			new_tv_try.setTextColor(getResources().getColor(R.color.selected_color));
+			new_tv_try.setTextColor(getResources().getColor(R.color.tab_select_txt));
 			new_tv_market.setTextColor(getResources().getColor(
 					R.color.defalut_color));
 			new_tv_picture.setTextColor(getResources().getColor(
@@ -193,7 +193,7 @@ public class NewsFragment extends BaseFragment {
 			new_tv_market.setTextColor(getResources().getColor(
 					R.color.defalut_color));
 			new_tv_picture.setTextColor(getResources().getColor(
-					R.color.selected_color));
+					R.color.tab_select_txt));
 			new_tv_newcar.setTextColor(getResources().getColor(
 					R.color.defalut_color));
 			break;
@@ -204,7 +204,7 @@ public class NewsFragment extends BaseFragment {
 			new_tv_buy.setTextColor(getResources().getColor(R.color.defalut_color));
 			new_tv_try.setTextColor(getResources().getColor(R.color.defalut_color));
 			new_tv_market.setTextColor(getResources().getColor(
-					R.color.selected_color));
+					R.color.tab_select_txt));
 			new_tv_picture.setTextColor(getResources().getColor(
 					R.color.defalut_color));
 			new_tv_newcar.setTextColor(getResources().getColor(

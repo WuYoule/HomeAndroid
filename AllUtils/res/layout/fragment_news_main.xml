@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="资讯"
-            android:textColor="#FF6000"
+            android:textColor="#4680d1"
             android:textSize="20sp" />
     </LinearLayout>
 
@@ -44,7 +44,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="要闻"
-                android:textColor="#FF6000"
+                android:textColor="#4680d1"
                 android:textSize="18sp" />
 
             <TextView

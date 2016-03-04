@@ -39,21 +39,11 @@
          android:layout_height="wrap_content"
          android:layout_alignParentBottom="true"
          android:layout_alignParentRight="true"
-         android:text="213"
+         android:text="阅读 213"
          android:textColor="#909090"
          android:textSize="14sp"        
         />
-    <ImageView 
-        android:layout_width="16dp"
-        android:layout_height="16dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp"
-        android:layout_marginRight="5dp"
-        android:layout_toLeftOf="@id/item_tv_count"
-        android:contentDescription="@null"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_launcher"
-        />
+   
     
 
 </RelativeLayout>

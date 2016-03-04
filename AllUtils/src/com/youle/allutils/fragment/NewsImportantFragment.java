@@ -30,6 +30,7 @@ import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnScroll;
 import com.lidroid.xutils.view.annotation.event.OnScrollStateChanged;
+import com.lidroid.xutils.view.annotation.event.OnTouch;
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
@@ -108,6 +109,7 @@ public class NewsImportantFragment extends BaseFragment {
 		return R.layout.fragment_news_important;
 	}
 	
+	
 
 	@Override
 	protected void initParams() {
@@ -133,6 +135,7 @@ public class NewsImportantFragment extends BaseFragment {
 		// 暂时的模拟数据的
 		for (int i = 0; i < 2; i++) {
 			NewsItem item1 = new NewsItem();
+			item1.id=i;
 			item1.cover_image = "http://192.168.56.1/youle/logo" + i + ".png";
 			item1.image_list="[{\"title\":\""+"图片标题1"+"\",\"url\":\""+ "http://192.168.56.1/youle/logo0.png"+"\"},{\"title\":\""+"图片标题2"+"\",\"url\":\""+ "http://192.168.56.1/youle/logo1.png"+"\"}]";
 //			item1.image_list.title="图片标题"+i;
@@ -158,7 +161,7 @@ public class NewsImportantFragment extends BaseFragment {
 		news_head_vp.setCurrentItem(headList.size()*1000);
 		
 		// 暂时的模拟数据的
-		for (int i = 0; i < 20; i++) {
+		for (int i = 1; i < 18; i++) {
 			NewsItem item = new NewsItem();
 			item.content = "这是一条新闻" + i;
 			data.add(item);

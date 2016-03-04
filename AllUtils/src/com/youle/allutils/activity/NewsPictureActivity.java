@@ -114,11 +114,24 @@ public class NewsPictureActivity extends BaseActivity {
   
 			picture_tv_title.setText(dataList.get(position % dataList.size()).title);
 			
-			// 使用picasso 避免图片出现oom以及图片错位
-			Picasso.with(getApplication())
-					.load(dataList.get(position % dataList.size()).url)
-					.placeholder(R.drawable.ic_launcher)
-					.into(picture_iv_item);
+			if (position==0) {
+				// 使用picasso 避免图片出现oom以及图片错位
+//				Picasso.with(getApplication())
+//						.load(dataList.get(position % dataList.size()).url)
+//						.placeholder(R.drawable.img1)
+//						.into(picture_iv_item);
+				
+				picture_iv_item.setImageDrawable(getResources().getDrawable(R.drawable.img1));
+			}
+			if (position==1) {
+				// 使用picasso 避免图片出现oom以及图片错位
+//				Picasso.with(getApplication())
+//						.load(dataList.get(position % dataList.size()).url)
+//						.placeholder(R.drawable.img2)
+//						.into(picture_iv_item);
+				picture_iv_item.setImageDrawable(getResources().getDrawable(R.drawable.img2));
+			}
+			
 			container.addView(view);
 			
 			

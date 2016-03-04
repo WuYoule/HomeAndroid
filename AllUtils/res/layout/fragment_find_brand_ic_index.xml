@@ -10,7 +10,7 @@
     android:maxHeight="70dp"
     android:gravity="center"
     android:layout_gravity="center"
-    android:background="@color/find_car"
+    android:background="@color/tab_select_txt"
      >
     
 

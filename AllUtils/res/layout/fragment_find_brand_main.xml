@@ -22,7 +22,7 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_centerInParent="true"
-        android:background="@color/selected_color"
+        android:background="@color/tab_select_txt"
         android:gravity="center"
         android:text="none"
         android:textColor="#FFF"

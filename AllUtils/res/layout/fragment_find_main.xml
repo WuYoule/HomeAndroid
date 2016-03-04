@@ -17,7 +17,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:background="#F3852C"
+            android:background="@color/tab_select_txt"
             android:orientation="horizontal" >
 
             <TextView
@@ -44,7 +44,7 @@
                 android:layout_marginBottom="1dp"
                 android:layout_marginRight="1dp"
                 android:text="精准找车"
-                android:textColor="@color/find_car"
+                android:textColor="@color/tab_select_txt"
                 android:textSize="16sp" />
         </LinearLayout>
 

@@ -8,8 +8,9 @@
        android:id="@+id/news_important_lv"
        android:layout_width="match_parent"
        android:layout_height="match_parent"
-       android:listSelector="@color/selected_color"
+       android:listSelector="#fff"
        android:dividerHeight="1dp"
+    
        android:divider="#B9B7B7"
        ></ListView>
 

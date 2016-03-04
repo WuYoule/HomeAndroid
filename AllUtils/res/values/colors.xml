@@ -9,4 +9,6 @@
      <color name="sidebar_selected">#FC7625</color>
      <color name="sidebar_touch">#ccB1ADAB</color>
      <color name="@android:color/transparent"></color>
+     <color name="tab_select_txt">#4680d1</color>
+     <color name="tab_default_txt">#686868</color>
 </resources>
